@@ -1,0 +1,1675 @@
+{%extends 'base.html'%}
+{%block content%}
+            <div class="page-header">
+                <div class="container">
+                    <h1>Competition</h1>
+                </div>
+            </div>
+        
+    
+
+    
+    
+
+    
+        <div class="container" style="padding-bottom: 40px;">
+            
+
+
+
+<div class="competition-view">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="img-container">
+                
+                    <img class="img-responsive" src="CodaLab%20-%20Competition_files/logo.jpg">
+                
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <h2>DE2021: Russian News Clustering and Headline Selection - Clustering</h2>
+            
+            <div class="organizer">
+                Organized by phoenix120 - Current server time: Sept. 30, 2021, 7:01 p.m. UTC<br>
+                
+            </div>
+            <input type="hidden" id="competitionId" value="28830">
+            <input type="hidden" id="cstoken" value="IO1WrXSJJip6xCC9pgXUgR0HIKqc2V65">
+            <div class="phase-container">
+                <div class="row">
+                    
+
+                    
+                        <div class="col-sm-4">
+                            <div class="phase current">
+                                <h4><span class="glyphicon glyphicon-play"></span> Current</h4>
+                                <span class="phase-label label phase-label-purple">Clustering</span>
+                                <div class="date">Feb. 6, 2021, midnight UTC</div>
+                            </div>
+                        </div>
+                    
+
+                    
+                    
+
+                    
+
+                    
+                        <div class="col-sm-4">
+                            <div class="phase">
+                                <h4>End</h4>
+                                <span class="phase-label label competition-end">Competition Ends</span>
+                                <div class="date">Jan. 1, 2099, 11:59 p.m. UTC</div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="competition-tabs">
+        <ul class="nav nav-tabs" id="competition_tab_nav">
+            
+                
+                <li class=""><a href="#learn_the_details" role="tab" data-toggle="tab">Learn the Details</a></li>
+                
+            
+                
+                    
+                    <li class=""><a href="#phases" role="tab" data-toggle="tab">Phases</a></li>
+                
+                <li class="active"><a href="#participate" role="tab" data-toggle="tab">Participate</a></li>
+                
+            
+                
+                <li class=""><a href="#results" role="tab" data-toggle="tab">Results</a></li>
+                
+                    
+                    
+                    
+                    
+                
+            
+        </ul>
+        <div class="tab-content">
+            
+                
+                
+                <div class="tab-pane" id="learn_the_details">
+                    <div class="tab-inner">
+                        
+                            <div class="row">
+    <div class="col-sm-3">
+        <ul class="nav nav-sidenav innertabs">
+            
+                <li class="active"><a href="#learn_the_details-overview" data-toggle="tab">Overview</a></li>
+            
+                <li class=""><a href="#learn_the_details-terms_and_conditions" data-toggle="tab">Terms and Conditions</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div class="tab-content sidenav">
+            
+                <div class="tab-pane active" id="learn_the_details-overview">
+                    
+                        
+                        <script>
+                            {
+                                const content = '\u003Cp\u003EWe invite you to participate in the Dialogue 2021 competition on Russian News Clustering and Headline Generation. The task consists of three tracks: clustering, headline selection, and headline generation. This competition aims to collect and compare different approaches to text clustering and headline selection.\u003C/p\u003E\u000D\u000A\u003Cp\u003EWe took news documents from the \u003Ca href\u003D\u0022https://contest.com/docs/data_clustering2\u0022 target\u003D\u0022_blank\u0022\u003ETelegram Data Clustering Contest\u003C/a\u003E and collected annotations via Yandex.Toloka crowdsourcing platform.\u003C/p\u003E\u000D\u000A\u003Cp\u003EThe competition consists of three stages:\u003C/p\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003EClustering (this page)\u003C/li\u003E\u000D\u000A\u003Cli\u003EChoosing the best headline (https://competitions.codalab.org/competitions/29479)\u003C/li\u003E\u000D\u000A\u003Cli\u003EGenerating cluster headline (https://competitions.codalab.org/competitions/29905)\u003C/li\u003E\u000D\u000A\u003C/ul\u003E\u000D\u000A\u003Cp\u003EDiscussion group in Telegram: \u003Ca href\u003D\u0022https://t.me/dialogue_clustering\u0022\u003Ehttps://t.me/dialogue_clustering\u003C/a\u003E\u003C/p\u003E\u000D\u000A\u003Ch4\u003EImportant dates\u003C/h4\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003ERelease of the Clustering data: February 8, 2021\u003C/li\u003E\u000D\u000A\u003Cli\u003ERelease of the side\u002Dby\u002Dside titles comparison data: February 26, 2021\u003C/li\u003E\u000D\u000A\u003Cli\u003EDeadline for all submissions: March 21, 2021\u003C/li\u003E\u000D\u000A\u003C/ul\u003E\u000D\u000A\u003Ch4\u003EOrganizers\u003C/h4\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003EIlya Gusev, Moscow Institute of Physics and Technologyю E\u002Dmail: ilya.gusev@phystech.edu. Telegram: \u003Ca href\u003D\u0022t.me/YallenGusev\u0022\u003E@YallenGusev\u003C/a\u003E.\u003C/li\u003E\u000D\u000A\u003Cli\u003EIvan Smurov, Moscow Institute of Physics and Technology, ABBYY. E\u002Dmail: ivan.smurov@abbyy.com.\u003C/li\u003E\u000D\u000A\u003C/ul\u003E\u000D\u000A\u003Ch4\u003EBaselines\u003C/h4\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003EAll baselines: \u003Ca href\u003D\u0022https://colab.research.google.com/drive/1bam5oFul9Gzj9rryq8_7M1\u002DEGJxO3K\u002DG\u0022\u003EColab notebook\u003C/a\u003E\u003C/li\u003E\u000D\u000A\u003C/ul\u003E';
+                                document.write(DOMPurify.sanitize(
+                                    content,
+                                    { FORBID_TAGS: ['style'] }
+                                ));
+                            }
+                        </script><p>We invite you to participate in the 
+Dialogue 2021 competition on Russian News Clustering and Headline 
+Generation. The task consists of three tracks: clustering, headline 
+selection, and headline generation. This competition aims to collect and
+ compare different approaches to text clustering and headline selection.</p>
+<p>We took news documents from the <a href="https://contest.com/docs/data_clustering2">Telegram Data Clustering Contest</a> and collected annotations via Yandex.Toloka crowdsourcing platform.</p>
+<p>The competition consists of three stages:</p>
+<ul>
+<li>Clustering (this page)</li>
+<li>Choosing the best headline (https://competitions.codalab.org/competitions/29479)</li>
+<li>Generating cluster headline (https://competitions.codalab.org/competitions/29905)</li>
+</ul>
+<p>Discussion group in Telegram: <a href="https://t.me/dialogue_clustering">https://t.me/dialogue_clustering</a></p>
+<h4>Important dates</h4>
+<ul>
+<li>Release of the Clustering data: February 8, 2021</li>
+<li>Release of the side-by-side titles comparison data: February 26, 2021</li>
+<li>Deadline for all submissions: March 21, 2021</li>
+</ul>
+<h4>Organizers</h4>
+<ul>
+<li>Ilya Gusev, Moscow Institute of Physics and Technologyю E-mail: ilya.gusev@phystech.edu. Telegram: <a href="https://competitions.codalab.org/competitions/t.me/YallenGusev">@YallenGusev</a>.</li>
+<li>Ivan Smurov, Moscow Institute of Physics and Technology, ABBYY. E-mail: ivan.smurov@abbyy.com.</li>
+</ul>
+<h4>Baselines</h4>
+<ul>
+<li>All baselines: <a href="https://colab.research.google.com/drive/1bam5oFul9Gzj9rryq8_7M1-EGJxO3K-G">Colab notebook</a></li>
+</ul>
+                        
+                    
+                </div>
+            
+                <div class="tab-pane" id="learn_the_details-terms_and_conditions">
+                    
+                        
+                        <script>
+                            {
+                                const content = '\u003Ch3\u003ETerms and Conditions\u003C/h3\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003EWe do not own any of the news documents, all of them were collected and published by Telegram.\u003C/li\u003E\u000D\u000A\u003Cli\u003EAll markups were collected via Yandex.Toloka, and licensed under \u003Ca href\u003D\u0022https://creativecommons.org/licenses/by/4.0\u0022\u003ECC BY 4.0\u003C/a\u003E\u003C/li\u003E\u000D\u000A\u003Cli\u003EThere are no money prizes in this competition, it is purely educational and scientific.\u003C/li\u003E\u000D\u000A\u003Cli\u003EThe Clustering task can be solved both as a clustering or classification task.\u003C/li\u003E\u000D\u000A\u003Cli\u003EIt is forbidden to use any news documents from the test set during training or pre\u002Dtraining. It includes pre\u002Dtraining word vectors on these documents.\u003C/li\u003E\u000D\u000A\u003C/ul\u003E';
+                                document.write(DOMPurify.sanitize(
+                                    content,
+                                    { FORBID_TAGS: ['style'] }
+                                ));
+                            }
+                        </script><h3>Terms and Conditions</h3>
+<ul>
+<li>We do not own any of the news documents, all of them were collected and published by Telegram.</li>
+<li>All markups were collected via Yandex.Toloka, and licensed under <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
+<li>There are no money prizes in this competition, it is purely educational and scientific.</li>
+<li>The Clustering task can be solved both as a clustering or classification task.</li>
+<li>It is forbidden to use any news documents from the test set during 
+training or pre-training. It includes pre-training word vectors on these
+ documents.</li>
+</ul>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+                        
+                    </div>
+                </div>
+
+            
+                
+                
+                    <div class="tab-pane" id="phases">
+                        <div class="tab-inner">
+                            <div class="phase-list">
+                                
+                                    <div class="phase-list-item panel phase-list-item-purple">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Clustering</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p><strong>Start:</strong> Feb. 6, 2021, midnight</p>
+                                            
+                                        </div>
+                                    </div>
+                                
+                                <div class="phase-list-item panel phase-list-item-default phase-list-item-deadline">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><strong>Competition Ends</strong></h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>  <strong>Jan. 1, 2099, 11:59 p.m.</strong>
+                                    
+                                    </p>
+                                </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                
+                <div class="tab-pane active" id="participate">
+                    <div class="tab-inner">
+                        
+                            
+                                
+                                
+                                    <div class="row">
+    <div class="col-sm-3">
+        <ul class="nav nav-sidenav innertabs">
+            
+                <li class=""><a href="#participate-get_data" data-toggle="tab">Get Data</a></li>
+            
+                <li class="active"><a href="#participate-submit_results" data-toggle="tab">Submit / View Results</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div class="tab-content sidenav">
+            
+                <div class="tab-pane" id="participate-get_data">
+                    
+                        
+
+                        
+                        <script>
+                            {
+                                const content = '\u003Ch4\u003EDescription\u003C/h4\u003E\u000D\u000A\u003Cp\u003EIn the Clustering stage, you have given a collection of news documents from the \u003Ca href\u003D\u0022https://contest.com/docs/data_clustering2\u0022\u003ETelegram Data Clustering Contest\u003C/a\u003E and a set of pairs from these documents. Your task is, for each given pair, to predict whether two documents describe the same event. We provide the labeled training dataset and the unlabeled test dataset.\u003C/p\u003E\u000D\u000A\u003Ch4\u003EEvaluation Criteria\u003C/h4\u003E\u000D\u000A\u003Cp\u003EThe main metric F\u002Dscore for positive examples.\u003C/p\u003E\u000D\u000A\u003Ch4\u003EData\u003C/h4\u003E\u000D\u000A\u003Cp\u003ETraining set: \u003Ca title\u003D\u0022ru_clustering_0525_urls.tsv\u0022 href\u003D\u0022https://www.dropbox.com/s/8lu6dw8zcrn840j/ru_clustering_0525_urls.tsv\u0022\u003Ehttps://www.dropbox.com/s/8lu6dw8zcrn840j/ru_clustering_0525_urls.tsv\u003C/a\u003E\u003C/p\u003E\u000D\u000A\u003Cp\u003ETest set: \u003Ca title\u003D\u0022ru_clustering_test_fixed.tsv\u0022 href\u003D\u0022https://www.dropbox.com/s/v2lbfft6pgzoeq3/ru_clustering_test_fixed.tsv\u0022\u003Ehttps://www.dropbox.com/s/v2lbfft6pgzoeq3/ru_clustering_test_fixed.tsv\u003C/a\u003E\u003C/p\u003E\u000D\u000A\u003Ch4\u003EColumns\u003C/h4\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003E\u003Cstrong\u003Efirst_url\u003C/strong\u003E \u002D URL of the first document\u003C/li\u003E\u000D\u000A\u003Cli\u003E\u003Cstrong\u003Esecond_url\u003C/strong\u003E \u002D URL of the second document\u003C/li\u003E\u000D\u000A\u003Cli\u003E\u003Cstrong\u003Equality\u003C/strong\u003E \u002D \u0022OK\u0022 if two documents describe the same event, \u0022BAD\u0022 otherwise\u003C/li\u003E\u000D\u000A\u003Cli\u003E\u003Cstrong\u003Edataset\u0026nbsp\u003B\u003C/strong\u003E\u002D exists only in test dataset to distinguish different dates\u003C/li\u003E\u000D\u000A\u003C/ul\u003E';
+                                document.write(DOMPurify.sanitize(
+                                    content,
+                                    { FORBID_TAGS: ['style'] }
+                                ));
+                            }
+                        </script><h4>Description</h4>
+<p>In the Clustering stage, you have given a collection of news documents from the <a href="https://contest.com/docs/data_clustering2">Telegram Data Clustering Contest</a>
+ and a set of pairs from these documents. Your task is, for each given 
+pair, to predict whether two documents describe the same event. We 
+provide the labeled training dataset and the unlabeled test dataset.</p>
+<h4>Evaluation Criteria</h4>
+<p>The main metric F-score for positive examples.</p>
+<h4>Data</h4>
+<p>Training set: <a href="https://www.dropbox.com/s/8lu6dw8zcrn840j/ru_clustering_0525_urls.tsv" title="ru_clustering_0525_urls.tsv">https://www.dropbox.com/s/8lu6dw8zcrn840j/ru_clustering_0525_urls.tsv</a></p>
+<p>Test set: <a href="https://www.dropbox.com/s/v2lbfft6pgzoeq3/ru_clustering_test_fixed.tsv" title="ru_clustering_test_fixed.tsv">https://www.dropbox.com/s/v2lbfft6pgzoeq3/ru_clustering_test_fixed.tsv</a></p>
+<h4>Columns</h4>
+<ul>
+<li><strong>first_url</strong> - URL of the first document</li>
+<li><strong>second_url</strong> - URL of the second document</li>
+<li><strong>quality</strong> - "OK" if two documents describe the same event, "BAD" otherwise</li>
+<li><strong>dataset&nbsp;</strong>- exists only in test dataset to distinguish different dates</li>
+</ul>
+                        
+                    
+                </div>
+            
+                <div class="tab-pane active" id="participate-submit_results">
+                    
+                        
+
+
+
+<div id="submissions_phase_buttons">
+  
+    
+      <!-- active, dont change bg color -->
+        <button class="btn active phase-btn-purple btn-sm selected" id="submissions_phase_47491">Clustering</button>
+    
+  
+</div>
+
+<div class="competition_submissions">
+
+    
+
+    
+    <div class="phase-description">
+        <h4>Phase description</h4>
+        
+            <p>None</p>
+        
+
+        <p><b>Max submissions per day: </b> 999</p>
+        <p><b>Max submissions total: </b> 1000</p>
+    </div>
+
+    
+
+    
+        <div class="form-group">
+            <label class="control-label">Click the Submit button to upload a new submission.</label>
+
+
+
+
+
+
+
+            
+                <br><b>*Team name (20 characters max): </b><input id="submission_team_name" type="text" maxlength="20" class="form-control" placeholder="Team name" value="landges21">
+                <br><b>*Method name (20 characters max): </b><input id="submission_method_name" type="text" maxlength="20" class="form-control" placeholder="Method name" value="tt +sbert">
+                <br><b>*Method description: </b><textarea id="submission_method_description" class="form-control" placeholder="Method description">tt +sbert</textarea>
+                <br><b>Project URL: </b><input id="submission_project_url" class="form-control" placeholder="Project URL" value="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing">
+                <br><b>Publication URL: </b><input id="submission_publication_url" class="form-control" placeholder="Publication URL">
+                <br><b>Bibtex: </b><textarea id="submission_bibtex" class="form-control" placeholder="Bibtex"></textarea>
+                <br><b>Organization/affiliation: </b><input id="submission_organization_or_affiliation" class="form-control" placeholder="Organization or Affiliation" value="MSU">
+            
+        </div>
+
+        
+            <form id="s3_upload_form" action="" method="post">
+                <input type="hidden" name="csrfmiddlewaretoken" value="IO1WrXSJJip6xCC9pgXUgR0HIKqc2V65">
+                <div class="s3direct form-active" data-policy-url="/s3direct/get_upload_params/">  <a class="file-link" target="_blank" href=""></a>  <a class="file-remove" href="#remove">Remove</a>  <input class="file-url" type="hidden" value="" id="id_s3_file" name="s3_file">  <input class="file-dest" type="hidden" value="submissions">  <input class="file-input" type="file">  <div class="progress progress-striped active">    <div class="bar"></div>  </div></div>
+                <div id="s3-file-upload" class="button btn btn-primary ">
+                    Submit
+                </div>
+            </form>
+        
+
+
+        
+
+        <p id="details" class="submission_upload_details"></p>
+
+        <p>Here are your submissions to date
+            <span class="small">(<span class="glyphicon glyphicon-ok"></span> indicates submission on leaderboard )</span>:</p>
+    
+    <div class="user_results">
+    
+        <input type="hidden" id="phasestate" value="1">
+    
+        <input type="hidden" id="submission_phase_id" class="form-control" value="47491">
+        <div class="table-responsive">
+            <table class="table resultsTable table-striped table-bordered" id="user_results">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    
+                        <th>Score</th>
+                    
+                    <th>Filename</th>
+                    <th>Submission date</th>
+                    <th>Status</th>
+                    <th class="text-center"><span class="glyphicon glyphicon-ok"></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    
+                        <tr id="805948" data-score="0.886541471" data-description="" data-method-name="sentenceBERT" data-method-description="use siam model for create embedings" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>1</td>
+                            
+                                <td>0.886541471</td>
+                            
+                            <td>submission.zip</td>
+                            <td>02/15/2021 19:24:47</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="805960" data-score="0.886541471" data-description="" data-method-name="sentenceBERT" data-method-description="use siam model for create embedings" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>2</td>
+                            
+                                <td>0.886541471</td>
+                            
+                            <td>submission (1).zip</td>
+                            <td>02/15/2021 19:58:54</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="809621" data-score="0.7004002287" data-description="" data-method-name="sentenceBERT" data-method-description="use siam model for create embedings and custom clustering algorithm" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>3</td>
+                            
+                                <td>0.7004002287</td>
+                            
+                            <td>submission.zip</td>
+                            <td>02/21/2021 16:06:56</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="819442" data-score="0.886541471" data-description="" data-method-name="sentenceBERT2" data-method-description="use siam model for create embedings and custom clustering algorithm" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>4</td>
+                            
+                                <td>0.886541471</td>
+                            
+                            <td>submission.zip</td>
+                            <td>03/03/2021 16:35:15</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="821367" data-score="0.9077242094" data-description="" data-method-name="sentenceBERT3" data-method-description="use siam model for create embedings and custom clustering algorithm" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>5</td>
+                            
+                                <td>0.9077242094</td>
+                            
+                            <td>submission (1).zip</td>
+                            <td>03/05/2021 22:40:36</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="821373" data-score="0.907886355" data-description="" data-method-name="sentenceBERT3" data-method-description="use siam model for create embedings and custom clustering algorithm" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>6</td>
+                            
+                                <td>0.907886355</td>
+                            
+                            <td>submission (2).zip</td>
+                            <td>03/05/2021 23:11:31</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="823292" data-score="0.8187572665" data-description="" data-method-name="ft" data-method-description="fast text" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>7</td>
+                            
+                                <td>0.8187572665</td>
+                            
+                            <td>submission_ft.zip</td>
+                            <td>03/08/2021 16:33:21</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="823293" data-score="0.8942901235" data-description="" data-method-name="use" data-method-description="use" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>8</td>
+                            
+                                <td>0.8942901235</td>
+                            
+                            <td>submission_use.zip</td>
+                            <td>03/08/2021 16:35:26</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="823349" data-score="0.830993107" data-description="" data-method-name="tfidf" data-method-description="tfidf" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>9</td>
+                            
+                                <td>0.830993107</td>
+                            
+                            <td>submission_tfidf.zip</td>
+                            <td>03/08/2021 19:03:33</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="824261" data-score="0.9202453988" data-description="" data-method-name="USE+SB" data-method-description="USE+SB" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>10</td>
+                            
+                                <td>0.9202453988</td>
+                            
+                            <td>submission_ans.zip</td>
+                            <td>03/09/2021 17:07:33</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="824270" data-score="0.9163326653" data-description="" data-method-name="USE+SB" data-method-description="USE+SB" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>11</td>
+                            
+                                <td>0.9163326653</td>
+                            
+                            <td>submission_ans (1).zip</td>
+                            <td>03/09/2021 17:28:19</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="824419" data-score="0.8197399527" data-description="" data-method-name="tt +sbert" data-method-description="tt +sbert" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>12</td>
+                            
+                                <td>0.8197399527</td>
+                            
+                            <td>submission_tt.zip</td>
+                            <td>03/09/2021 22:15:55</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="840990" data-score="0.9163326653" data-description="" data-method-name="tt +sbert" data-method-description="tt +sbert" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>13</td>
+                            
+                                <td>0.9163326653</td>
+                            
+                            <td>submission_ans.zip</td>
+                            <td>03/23/2021 18:31:02</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status not_submitted text-center"></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                        <tr id="840998" data-score="0.9127306032" data-description="" data-method-name="tt +sbert" data-method-description="tt +sbert" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
+                            
+                                <input type="hidden" name="state" value="1">
+                            
+                            <td>14</td>
+                            
+                                <td>0.9127306032</td>
+                            
+                            <td>submission_ans.zip</td>
+                            <td>03/23/2021 18:52:25</td>
+                            <td class="statusName">Finished</td>
+                            
+                                <td class="status submitted text-center"><span class="glyphicon glyphicon-ok text-success"></span></td>
+                            
+                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
+                        </tr>
+                    
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="submission_details_template" class="hide">
+        <table>
+            <tbody><tr class="trDetails">
+                <td class="tdDetails">
+                    <div class="submission_details">
+                        <div class="bundle__meta__desc">
+                            <p class="submission_description">No description given.</p>
+                            <textarea name="updated_description" class="hide" placeholder="new description" style="display: block; width: 100%; margin-bottom: 12px;"></textarea>
+                            <button class="btn btn-primary save_description_btn hide">save description</button>
+                            <button class="btn btn-primary update_description_btn">update description</button>
+                            <p class="submission_team_name"></p>
+                            <p class="submission_method_name"></p>
+                            <p class="submission_method_description"></p>
+                            <p class="submission_project_url"></p>
+                            <p class="submission_publication_url"></p>
+                            <p class="submission_bibtex"></p>
+                            <p class="submission_organization_or_affiliation"></p>
+                        </div>
+                        
+                        <div class="traceback"><a href="https://competitions.codalab.org/competitions/traceback/_/"></a></div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="https://competitions.codalab.org/my/competition/submission/_/input.zip">Download your submission</a></li>
+                                    
+                                    
+                                        <li><a href="https://competitions.codalab.org/my/competition/submission/_/stdout.txt" target="_blank">View scoring output log</a></li>
+                                        <li><a href="https://competitions.codalab.org/my/competition/submission/_/stderr.txt" target="_blank">View scoring error log</a></li>
+                                        
+                                        
+                                            <li><a href="https://competitions.codalab.org/my/competition/submission/_/output.zip">Download output from scoring step</a></li>
+                                        
+                                    
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 preloader-handler"></div>
+                            <div class="col-sm-3">
+                                <button class="leaderboard_button btn btn-default pull-right hide"></button><br>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+        <table id="submission_row_template">
+            <tbody><tr>
+                <input type="hidden" name="state" value="0">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="statusName"></td>
+                <td class="status not_submitted"></td>
+                <td><span class="glyphicon glyphicon-plus"></span></td>
+            </tr>
+        </tbody></table>
+    </div>
+
+
+
+<script>
+    //**************************************************************//
+    //**                 docker image max length                  **//
+    //**************************************************************//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //**************************************************************//
+    //**                 S3 Filestorage functions                 **//
+    //**************************************************************//
+    $("#s3-file-upload").click(function(e) {
+        // reset form
+        $(".s3direct .file-input").val('')
+        $('.s3direct a.file-link').attr('href', '')
+
+        $(".s3direct .file-input").click()
+    })
+
+    $(".s3direct .file-input").change(function(){
+        $("#s3-file-upload").addClass('disabled')
+        if($(".s3direct .file-input").val() == '') {
+            $("#s3-file-upload").removeClass('disabled')
+            return
+        }
+
+        var test_if_done = function () {
+            var uploaded_url = $('.s3direct a.file-link').attr('href')
+
+            if (uploaded_url && uploaded_url != '' && uploaded_url.length > 0) {
+                $("#s3-file-upload").removeClass('disabled')
+                Competition.submitUploadedSubmissionDetails(undefined, uploaded_url)
+            } else {
+                setTimeout(test_if_done, 100)
+            }
+        }
+        test_if_done()
+    })
+</script>
+</div>
+
+                    
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+                                
+                            
+                        
+                    </div>
+                </div>
+
+            
+                
+                
+                <div class="tab-pane" id="results">
+                    <div class="tab-inner">
+                        
+                            <div id="results_phase_buttons">
+  
+    
+      <button class="btn active phase-btn-purple selected" id="results_phase_47491">Clustering</button>
+    
+  
+</div>
+
+<div class="competition_results">
+
+
+    
+    <div class="phase-description">
+        <h4>Phase description</h4>
+        
+            <p>None</p>
+        
+        <p><b>Max submissions per day: </b> 999</p>
+        <p><b>Max submissions total: </b> 1000</p>
+    </div>
+
+    
+        <a class="icon-excel btn btn-default" href="https://competitions.codalab.org/competitions/28830/results/47491/data">Download CSV</a>
+    
+    
+
+    <div class="leaderboard-result-table">
+        
+            <table class="resultsTable dataTable">
+                <tbody><tr class="table-title">
+                    <th colspan="6">Results</th>
+                </tr>
+                <tr class="leaderboard-result-table-header">
+                    <th rowspan="2">#</th>
+                    <th rowspan="2">User</th>
+                    <th rowspan="2">Entries</th>
+                    <th rowspan="2">Date of Last Entry</th>
+                    
+                    <th rowspan="2">Team Name</th>
+                    
+                    
+                        
+                            <th rowspan="2" class="column-selectable column-selected" name="f1_score">F-score
+                            <span class="glyphicon glyphicon-play ascending-sorting" aria-hidden="true"></span>
+                            </th>
+                        
+                    
+                    
+                    
+                </tr>
+                <tr>
+                    
+                        
+                    
+                </tr>
+                
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    <p class="leader-top3">1</p>
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        <p class="leader-top3">maelstorm</p>
+                                    
+                                
+                            </td>
+                            <td> 115 </td>
+                            <td> 03/22/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.969 (<span class="rank">1</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    <p class="leader-top3">2</p>
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        <p class="leader-top3">naergvae</p>
+                                    
+                                
+                            </td>
+                            <td> 16 </td>
+                            <td> 03/23/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.967 (<span class="rank">2</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    <p class="leader-top3">3</p>
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        <p class="leader-top3">g2tmn</p>
+                                    
+                                
+                            </td>
+                            <td> 19 </td>
+                            <td> 03/21/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.965 (<span class="rank">3</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    4
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        alexey.artsukevich
+                                    
+                                
+                            </td>
+                            <td> 34 </td>
+                            <td> 03/23/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.958 (<span class="rank">4</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    5
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        Kouki
+                                    
+                                
+                            </td>
+                            <td> 27 </td>
+                            <td> 03/24/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.955 (<span class="rank">5</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    6
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        vatolinalex
+                                    
+                                
+                            </td>
+                            <td> 22 </td>
+                            <td> 03/24/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.952 (<span class="rank">6</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    7
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        smekur
+                                    
+                                
+                            </td>
+                            <td> 10 </td>
+                            <td> 03/24/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.946 (<span class="rank">7</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    8
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        blanchefort
+                                    
+                                
+                            </td>
+                            <td> 33 </td>
+                            <td> 03/18/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.941 (<span class="rank">8</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    9
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        phoenix120
+                                    
+                                
+                            </td>
+                            <td> 16 </td>
+                            <td> 05/04/21 </td>
+                            
+                            <td>Orgs</td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.939 (<span class="rank">9</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    10
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        nikyudin
+                                    
+                                
+                            </td>
+                            <td> 24 </td>
+                            <td> 03/24/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.938 (<span class="rank">10</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    11
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        landges
+                                    
+                                
+                            </td>
+                            <td> 14 </td>
+                            <td> 03/23/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.913 (<span class="rank">11</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    12
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        kapant
+                                    
+                                
+                            </td>
+                            <td> 6 </td>
+                            <td> 03/23/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.907 (<span class="rank">12</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    13
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        anonym
+                                    
+                                
+                            </td>
+                            <td> 14 </td>
+                            <td> 03/24/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.906 (<span class="rank">13</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    14
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        imroggen
+                                    
+                                
+                            </td>
+                            <td> 2 </td>
+                            <td> 03/21/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.903 (<span class="rank">14</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    15
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        bond005
+                                    
+                                
+                            </td>
+                            <td> 19 </td>
+                            <td> 03/24/21 </td>
+                            
+                            <td>NSU-AI</td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.902 (<span class="rank">15</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    16
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        lllFaNToMlll
+                                    
+                                
+                            </td>
+                            <td> 5 </td>
+                            <td> 06/02/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.894 (<span class="rank">16</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    17
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        Abiks
+                                    
+                                
+                            </td>
+                            <td> 8 </td>
+                            <td> 02/27/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.894 (<span class="rank">17</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    18
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        mashkka_t
+                                    
+                                
+                            </td>
+                            <td> 27 </td>
+                            <td> 03/15/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.853 (<span class="rank">18</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                        <tr>
+                            <td class="row-position">
+                                
+                                    19
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        dinabpr
+                                    
+                                
+                            </td>
+                            <td> 14 </td>
+                            <td> 03/21/21 </td>
+                            
+                            <td></td>
+                            
+                            
+                                
+                                    
+                                        
+                                            <td class="column-selected" name="f1_score">0.844 (<span class="rank">19</span>)</td>
+                                        
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+                        </tr>
+                    
+                
+            </tbody></table>
+        
+    </div>
+
+</div>
+
+                        
+                    </div>
+                </div>
+
+            
+        </div>
+    </section>
+        <div class="row">
+        <div class="col-sm-4">
+            
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                        <tr>
+                            <td>1</td>
+                            <td>maelstorm</td>
+                            <td>0.969</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>2</td>
+                            <td>naergvae</td>
+                            <td>0.967</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>3</td>
+                            <td>g2tmn</td>
+                            <td>0.965</td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+            
+        </div>
+        <div class="col-sm-8"><iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px none; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" tabindex="-1"></iframe>
+            
+                
+                    
+
+<canvas id="chart" style="display: block; width: 750px; height: 375px;" width="750" height="375"></canvas>
+<script>
+    var ctx = document.getElementById("chart");
+    var local_highscore = 0
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["08 February 2021","10 February 2021","15 February 2021","18 February 2021","19 February 2021","20 February 2021","21 February 2021","24 February 2021","26 February 2021","27 February 2021","28 February 2021","01 March 2021","02 March 2021","03 March 2021","04 March 2021","05 March 2021","06 March 2021","07 March 2021","08 March 2021","09 March 2021","10 March 2021","11 March 2021","12 March 2021","13 March 2021","14 March 2021","15 March 2021","16 March 2021","17 March 2021","18 March 2021","19 March 2021","20 March 2021","21 March 2021","22 March 2021","23 March 2021","24 March 2021","04 May 2021","02 June 2021","15 June 2021",],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'High Score',
+                    yAxisID: 'score',
+                    data: [0.8, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 1.0, 1.0, 1.0, 1.0, 1.0, 0.9, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.9, 0.9, 0.9, ],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.0)'
+                },
+                {
+                    type: 'bar',
+                    label: 'Total Daily Submissions',
+                    yAxisID: 'count',
+                    data: [2, 1, 2, 8, 1, 5, 3, 1, 1, 6, 2, 1, 3, 2, 5, 12, 9, 12, 9, 33, 1, 5, 13, 8, 3, 17, 11, 7, 42, 16, 25, 82, 3, 7, 23, 1, 1, 1, ]
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    id: "count",
+                    position: "left",
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Submission count'
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                        suggestedMax: 25
+                    }
+                }, {
+                    id: "score",
+                    position: "right",
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Submission score',
+                        fontColor: 'rgba(255,99,132,1)',
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        suggestedMin: -0.1,
+                        suggestedMax: 1.2,
+                        // Reverse the score axis if we're doing descending (1 is better than 0)
+                        reverse: "desc" === "asc"
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+                
+            
+        </div>
+    </div>
+</div>
+
+
+        </div>
+{%endblock%}
