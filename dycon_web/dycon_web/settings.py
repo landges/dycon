@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#ybr%)p77^=pdr@3*((31(rr@)x&irg!scx=qt!vz&!-xu-9p@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1',]
 
 
 # Application definition
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'dycon_web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dj_dycon',
+        'USER': 'landges',
+        'PASSWORD': '1234',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
     }
 }
 
