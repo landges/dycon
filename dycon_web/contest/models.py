@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.shortcuts import reverse
 
 
 # Dataset model
@@ -19,6 +20,7 @@ class Dataset(models.Model):
 class Competition(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
+    label = models.CharField(max_length=300,null=True, blank=True)
     url_redirect = models.URLField(null=True, blank=True, verbose_name="URL Redirect", help_text="(NOTE: You should not have Registration Required above checked if using URL redirection, because upon redirect participants will not be approved and unable to participate.)")
     image = models.FileField(upload_to='logos', null=True, blank=True, verbose_name="Logo")
     image_url_base = models.CharField(max_length=255)
@@ -37,6 +39,15 @@ class Competition(models.Model):
     # scoring_program_docker_image = models.CharField(max_length=128, default='', blank=True)
     # default_docker_image = models.CharField(max_length=128, default='', blank=True)
     # disable_custom_docker_image = models.BooleanField(default=True)
+
+    def get_absolute_url(self):
+        return reverse("comp_detail",kwargs={"pk":self.id})
+
+    def get_convas_data(self):
+        # return date array
+        #        high scores
+        #        total submissions per day
+        pass
 
 
 class CompetitionSubmission(models.Model):

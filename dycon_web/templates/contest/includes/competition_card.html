@@ -1,0 +1,24 @@
+<a href="{{comp.get_absolute_url}}">
+    <div class="competition-tile full-width">
+        <input id="competitionID" type="hidden" value="{{comp.id}}"/>
+        <div class="row">
+            <div class="col-sm-2 col-md-2">
+                <div class="img-container">
+                        <img src="{{comp.image.url}}" class="img-responsive">
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <h3>{{comp.title}}</h3>
+                <p class="organizer">Organized by {{comp.creator}}</p>
+                <p>{{comp.label}}</p>
+            </div>
+            <div class="col-sm-4 col-md-4 right-panel">
+                {{comp.start_date}}-{{comp.end_date}}<br>
+				<b>49</b> participants<br>
+            </div>
+            <br><br>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</a>
