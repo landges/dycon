@@ -1,0 +1,169 @@
+{%load static%}
+<!DOCTYPE html>
+<html class=" js no-touch svg inlinesvg svgclippaths no-ie8compat" style="" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="globalsign-domain-verification" content="1lsowFdlUrrtcRyvAiFS11btFe-ChVU8h2FmxHw7sD">
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="image/x-icon" rel="shortcut icon" href="https://competitions.codalab.org/static/img/favicon.ico">
+    
+    
+
+    <title>CodaLab - Sign Up</title>
+
+    
+        <!-- Included CSS Files (Compressed) -->
+       <link rel="stylesheet" href="{%static 'css/jquery.css'%}">
+        <link rel="stylesheet" href="{%static 'css/jquery-editable.css'%}">
+        <link rel="stylesheet" href="{%static 'css/select2.css'%}">
+        
+        
+        <link rel="stylesheet" type="text/css" href="{%static 'css/imports.css'%}">
+        
+        <script async="" src="CodaLab%20-%20Sign%20Up_files/analytics.js"></script><script src="CodaLab%20-%20Sign%20Up_files/Chart.js"></script>
+        <script src="CodaLab%20-%20Sign%20Up_files/jquery-1.js"></script>
+        <script src="CodaLab%20-%20Sign%20Up_files/custom.js"></script>
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="CodaLab%20-%20Sign%20Up_files/jquery-eu-cookie-law-popup.js"></script>
+    
+
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                    <a class="navbar-brand" href="https://competitions.codalab.org/" tabindex="1" target="_self">
+                        
+                            <img src="CodaLab%20-%20Sign%20Up_files/codalab-logo-fullcolor-positive.png" alt="Home">
+                        
+                    </a>
+                
+            </div>
+            
+
+        </div>
+    </nav>
+
+    
+        
+            <div class="page-header">
+                <div class="container">
+                    <h1>Sign Up</h1>
+                </div>
+            </div>
+        
+    
+
+    
+    
+
+    
+        <div class="container" style="padding-bottom: 40px;">
+            
+<div class="row">
+    <div class="col-md-6">
+	    <form class="signup" id="signup_form" method="post" action="{%url 'django_registration_complete'%}">
+		    {%csrf_token%}
+            <div class="form-group">
+                <label for="id_username">*Username:</label>
+                <input id="id_username" class="form-control" name="username" autofocus="" placeholder="Username" type="text" value="landges">
+            </div>
+            <div class="form-group">
+                <label for="id_email">*E-mail:</label>
+                <input id="id_email" class="form-control" name="email" placeholder="E-mail address" type="text">
+            </div>
+            <div class="form-group">
+                <label for="id_password1">*Password:</label>
+                <input id="id_password1" class="form-control" name="password1" placeholder="Password" type="password" value="">
+            </div>
+            <div class="form-group">
+                <label for="id_password2">*Password (again):</label>
+                <input id="id_password2" class="form-control" name="password2" placeholder="Password" type="password" value="">
+                <input id="id_confirmation_key" name="confirmation_key" type="hidden">
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="id_accept_rules" name="accept_rules" required="True">
+                <label for="id_accept_rules">I accept the <a href="https://github.com/codalab/codalab-competitions/wiki/Privacy" target="_blank">terms and conditions</a></label>
+            </div>
+
+            
+		          <input type="hidden" name="next" value="/">
+            
+            <button class="btn btn-primary margin-top" type="submit">Sign Up</button>
+	    </form>
+    </div>
+</div>
+
+        </div>
+    
+
+    <footer class="navbar-fixed-bottom">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://github.com/codalab/codalab/issues" target="_blank">Join us on Github for contact &amp; bug reports</a></li>
+                
+                    <li><a href="https://github.com/codalab/codalab/wiki/Project_About_CodaLab" target="_blank">About</a></li>
+                    <li><a href="https://github.com/codalab/codalab/wiki/Privacy" target="_blank">Privacy and Terms</a></li>
+                
+
+                <li><a>v1.5</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="CodaLab%20-%20Sign%20Up_files/jquery.js"></script>
+
+    <script src="CodaLab%20-%20Sign%20Up_files/bootstrap.js"></script>
+    <script src="CodaLab%20-%20Sign%20Up_files/select2-forked.js"></script>
+    <script src="CodaLab%20-%20Sign%20Up_files/jquery_002.js"></script>
+
+    <script type="text/javascript" src="CodaLab%20-%20Sign%20Up_files/app.js"></script>
+    <script type="text/javascript" src="CodaLab%20-%20Sign%20Up_files/Competition.js"></script>
+    <script type="text/javascript" src="CodaLab%20-%20Sign%20Up_files/main.js"></script>
+
+
+    <div id="migration_modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Migration warning</h4>
+                </div>
+                <div class="modal-body">
+                    <p>We have scheduled a important maintenance operation for the Codalab public instance (<a href="http://competitions.codalab.org/">http://competitions.codalab.org</a>) for Saturday, September 8th.</p>
+
+                    <p>The migration will start at approximately 9AM PST and should hopefully be completed by approximately 1PM PST that same day.
+                        During that time the server will be down.</p>
+
+                    <p>If you have a scheduling conflict with this move, please let us know before September
+                        1st by posting an issue to GitHub here:<br>
+                        <a href="https://github.com/codalab/codalab-competitions/issues">https://github.com/codalab/codalab-competitions/issues</a></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="hide_migration_warning" type="button" class="btn btn-primary" data-dismiss="modal" onclick="hide_migration_warning">OK don't tell me again!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>

@@ -40,6 +40,9 @@ class Competition(models.Model):
     # default_docker_image = models.CharField(max_length=128, default='', blank=True)
     # disable_custom_docker_image = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.title
+
     def get_absolute_url(self):
         return reverse("comp_detail",kwargs={"pk":self.id})
 
@@ -94,3 +97,4 @@ class CompetitionSubmission(models.Model):
 
     like_count = models.IntegerField(default=0)
     dislike_count = models.IntegerField(default=0)
+    score = models.FloatField(default=0.0)

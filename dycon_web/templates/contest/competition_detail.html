@@ -331,27 +331,10 @@ provide the labeled training dataset and the unlabeled test dataset.</p>
                 </tr>
                 </thead>
                 <tbody>
-                    {%for result in result_user%}
+                    {%for result in user_board%}
+                        {%include 'contest/includes/result_user_card.html'%}
                     {%endfor%}
                     
-                        <tr id="805948" data-score="0.886541471" data-description="" data-method-name="sentenceBERT" data-method-description="use siam model for create embedings" data-project-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-publication-url="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing" data-team-name="landges21" data-organization-or-affiliation="MSU" data-bibtex="" data-is-public="">
-                            
-                                <input type="hidden" name="state" value="1">
-                            
-                            <td>1</td>
-                            
-                                <td>0.886541471</td>
-                            
-                            <td>submission.zip</td>
-                            <td>02/15/2021 19:24:47</td>
-                            <td class="statusName">Finished</td>
-                            
-                                <td class="status not_submitted text-center"></td>
-                            
-                            <td class="text-center"><span class="glyphicon glyphicon-plus"></span></td>
-                        </tr>
-                    
-    
                 </tbody>
             </table>
         </div>
@@ -546,7 +529,7 @@ provide the labeled training dataset and the unlabeled test dataset.</p>
                         </tr>
                         <tr>
                         </tr>
-                        {%for result in all_user_result%}
+                        {%for result in leader_board%}
                             {%include 'contest/includes/table_result_user_card.html'%}
                         {%endfor%}
                     </tbody>

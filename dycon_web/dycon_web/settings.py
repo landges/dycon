@@ -139,6 +139,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_REDIRECT_URL='/competitions/'
+ACCOUNT_ACTIVATION_DAYS = 365
+
 # redis related settings
 REDIS_HOST = '0.0.0.0'
 REDIS_PORT = '6379'

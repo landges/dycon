@@ -5,3 +5,7 @@ from .models import *
 @admin.register(Competition)
 class CompetitionAdmin(admin.ModelAdmin):
 	list_display=['id','title']
+
+@admin.register(CompetitionSubmission)
+class CompetitionAdmin(admin.ModelAdmin):
+	list_display=['id','participant']
