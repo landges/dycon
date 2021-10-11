@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
-
+from datetime import datetime
 
 # Dataset model
 class Dataset(models.Model):
@@ -35,7 +35,7 @@ class Competition(models.Model):
     published = models.BooleanField(default=False, verbose_name="Publicly Available")
     datasets = models.ManyToManyField(Dataset, blank=True, related_name='phase')
     scoring_program = models.FileField(upload_to='scoring_program_file',null=True,blank=True, verbose_name="Scoring Program")
-
+    conditional = models.TextField(null=True,blank=True)
     # scoring_program_docker_image = models.CharField(max_length=128, default='', blank=True)
     # default_docker_image = models.CharField(max_length=128, default='', blank=True)
     # disable_custom_docker_image = models.BooleanField(default=True)
@@ -45,6 +45,39 @@ class Competition(models.Model):
 
     def get_absolute_url(self):
         return reverse("comp_detail",kwargs={"pk":self.id})
+
+    def get_count_participants(self):
+        participants = CompetitionSubmission.objects.filter(competition=self).distinct('participant').count()
+        return participants
+
+    def get_top3(self):
+        leader_board = CompetitionSubmission.objects.filter(competition=self,is_public=True).order_by('score')[:3]
+        return leader_board
+
+    def get_submission_date(self):
+        dates=[]
+        dates_obj = CompetitionSubmission.objects.filter(competition=self).distinct('submitted_at__date')
+        for date in dates_obj:
+            dates.append(str(date.submitted_at.strftime("%Y-%m-%d")))
+        return dates
+
+    def get_total_submissiom(self):
+        total=[]
+        dates = CompetitionSubmission.objects.filter(competition=self).distinct('submitted_at__date')
+        for date in dates:
+            subm = CompetitionSubmission.objects.filter(competition=self, submitted_at__date=date.submitted_at).count()
+            total.append(subm)
+        return total
+
+    def get_best_scores(self):
+        scores=[]
+        comp=self
+        dates = CompetitionSubmission.objects.filter(competition=self).distinct('submitted_at__date')
+        for date in dates:
+            subm = CompetitionSubmission.objects.filter(competition=self, submitted_at__date=date.submitted_at).order_by('score').first()
+            scores.append(subm.score)
+        return scores
+
 
     def get_convas_data(self):
         # return date array

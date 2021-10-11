@@ -4,10 +4,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import *
 
-class CompetitionSubmission(forms.ModelForm):
+class CompetitionSubmissionForm(forms.ModelForm):
 	class Meta:
 		model=CompetitionSubmission
-		fields = ('team_name','method_name','method_description','inputfile')
+		fields = ('competition','team_name','method_name','method_description','inputfile')
 
 
 class SignUpForm(UserCreationForm):

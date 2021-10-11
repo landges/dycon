@@ -4,7 +4,8 @@ from django.views.generic.base import View
 from django.contrib.auth.models import User
 from .tasks import submission
 from .models import *
-from .forms import SignUpForm
+from .forms import SignUpForm, CompetitionSubmissionForm
+from django.http import JsonResponse
 
 # Create your views here.
 class SubmitContest(View):
@@ -13,6 +14,9 @@ class SubmitContest(View):
 		submission.delay(2,2)
 		user = User.objects.get(username=request.user)
 		leader_board = CompetitionSubmission.objects.filter(competition=comp,is_public=True).order_by('score')		
+		for result in leader_board:
+			entries = CompetitionSubmission.objects.filter(competition=comp, participant=result.participant).count()
+			result.entries = entries
 		user_board = CompetitionSubmission.objects.filter(competition=comp, participant=user).order_by('submitted_at')
 		return render(request,'contest/competition_detail.html',context={
 			"competition":comp, 
@@ -29,6 +33,21 @@ class CompetionList(View):
 
 	def post(self, request):
 		pass
+
+
+class UploadSubmission(View):
+	def post(self,request):
+		data=request.POST
+		print(data)
+		form = CompetitionSubmissionForm(request.POST,request.FILES)
+		participant = User.objects.get(username=request.user)
+		form.instance.participant = participant
+		if form.is_valid():
+			form.save()
+			return JsonResponse({"save":"OK"})
+		else:
+			return JsonResponse({"save":"Error"})
+
 
 class SignUp(View):
 	def get(self, request):

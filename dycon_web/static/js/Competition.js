@@ -281,28 +281,18 @@ var Competition;
     Competition.submitUploadedSubmissionDetails = function(file, trackingId) {
         var competitionId = $("#competitionId").val()
         $('#details').html('Creating new submission...');
-        var docker_image = $('#submission_docker_image').val() || '';
+        // var docker_image = $('#submission_docker_image').val() || '';
         var description = $('#submission_description_textarea').val() || '';
         var method_name = $('#submission_method_name').val() || '';
         var method_description = $('#submission_method_description').val() || '';
-        var project_url = $('#submission_project_url').val() || '';
-        var publication_url = $('#submission_publication_url').val() || '';
-        var bibtex = $('#submission_bibtex').val() || '';
         var team_name = $('#submission_team_name').val() || '';
-        var organization_or_affiliation = $('#submission_organization_or_affiliation').val() || '';
-        var phase_id = $('#submission_phase_id').val();
         $('#submission_description_textarea').val('');
         $.ajax({
             url: '/api/competition/' + competitionId + '/submission?description=' + encodeURIComponent(description) +
-                                                                  '&docker_image=' + encodeURIComponent(docker_image) +
+                                                                  // '&docker_image=' + encodeURIComponent(docker_image) +
                                                                   '&method_name=' + encodeURIComponent(method_name) +
                                                                   '&method_description=' + encodeURIComponent(method_description) +
-                                                                  '&project_url=' + encodeURIComponent(project_url) +
-                                                                  '&publication_url=' + encodeURIComponent(publication_url) +
-                                                                  '&team_name=' + encodeURIComponent(team_name) +
-                                                                  '&organization_or_affiliation=' + encodeURIComponent(organization_or_affiliation) +
-                                                                  '&bibtex=' + encodeURIComponent(bibtex) +
-                                                                  '&phase_id=' + encodeURIComponent(phase_id),
+                                                                  '&team_name=' + encodeURIComponent(team_name),
             type: 'post',
             cache: false,
             data: {

@@ -9,3 +9,7 @@ class CompetitionAdmin(admin.ModelAdmin):
 @admin.register(CompetitionSubmission)
 class CompetitionAdmin(admin.ModelAdmin):
 	list_display=['id','participant']
+
+@admin.register(Dataset)
+class DatasetAdmin(admin.ModelAdmin):
+	list_display = ['id','creator','name']

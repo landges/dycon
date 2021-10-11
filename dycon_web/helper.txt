@@ -1,1 +1,4 @@
-helper.txt
+run docker redis
+sudo docker run -d -p 6379:6379 redis
+run celery
+celery -A dycon_web worker --loglevel=info

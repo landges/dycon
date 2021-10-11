@@ -21,7 +21,7 @@
             <div class="organizer">
                 Organized by {{competition.creator.username}} - Current server time: {%now 'P'%}<br>
             </div>
-            <input type="hidden" id="competitionId" value="28830">
+            <input type="hidden" id="competitionId" value="{{competition.id}}">
             <input type="hidden" id="cstoken" value="IO1WrXSJJip6xCC9pgXUgR0HIKqc2V65">
             <div class="phase-container">
                 <div class="row">
@@ -52,7 +52,7 @@
                 Learn the Details
                 </a>
             </li>
-            <li class=""><a href="#phases" role="tab" data-toggle="tab">Phases</a></li>
+            <!-- <li class=""><a href="#phases" role="tab" data-toggle="tab">Phases</a></li> -->
             
             <li class="active">
                 <a href="#participate" role="tab" data-toggle="tab">
@@ -81,43 +81,9 @@
                                     <div class="tab-pane active" id="learn_the_details-overview">
                     
                         
-                        <script>
-                            {
-                                const content = '\u003Cp\u003EWe invite you to participate in the Dialogue 2021 competition on Russian News Clustering and Headline Generation. The task consists of three tracks: clustering, headline selection, and headline generation. This competition aims to collect and compare different approaches to text clustering and headline selection.\u003C/p\u003E\u000D\u000A\u003Cp\u003EWe took news documents from the \u003Ca href\u003D\u0022https://contest.com/docs/data_clustering2\u0022 target\u003D\u0022_blank\u0022\u003ETelegram Data Clustering Contest\u003C/a\u003E and collected annotations via Yandex.Toloka crowdsourcing platform.\u003C/p\u003E\u000D\u000A\u003Cp\u003EThe competition consists of three stages:\u003C/p\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003EClustering (this page)\u003C/li\u003E\u000D\u000A\u003Cli\u003EChoosing the best headline (https://competitions.codalab.org/competitions/29479)\u003C/li\u003E\u000D\u000A\u003Cli\u003EGenerating cluster headline (https://competitions.codalab.org/competitions/29905)\u003C/li\u003E\u000D\u000A\u003C/ul\u003E\u000D\u000A\u003Cp\u003EDiscussion group in Telegram: \u003Ca href\u003D\u0022https://t.me/dialogue_clustering\u0022\u003Ehttps://t.me/dialogue_clustering\u003C/a\u003E\u003C/p\u003E\u000D\u000A\u003Ch4\u003EImportant dates\u003C/h4\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003ERelease of the Clustering data: February 8, 2021\u003C/li\u003E\u000D\u000A\u003Cli\u003ERelease of the side\u002Dby\u002Dside titles comparison data: February 26, 2021\u003C/li\u003E\u000D\u000A\u003Cli\u003EDeadline for all submissions: March 21, 2021\u003C/li\u003E\u000D\u000A\u003C/ul\u003E\u000D\u000A\u003Ch4\u003EOrganizers\u003C/h4\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003EIlya Gusev, Moscow Institute of Physics and Technologyю E\u002Dmail: ilya.gusev@phystech.edu. Telegram: \u003Ca href\u003D\u0022t.me/YallenGusev\u0022\u003E@YallenGusev\u003C/a\u003E.\u003C/li\u003E\u000D\u000A\u003Cli\u003EIvan Smurov, Moscow Institute of Physics and Technology, ABBYY. E\u002Dmail: ivan.smurov@abbyy.com.\u003C/li\u003E\u000D\u000A\u003C/ul\u003E\u000D\u000A\u003Ch4\u003EBaselines\u003C/h4\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003EAll baselines: \u003Ca href\u003D\u0022https://colab.research.google.com/drive/1bam5oFul9Gzj9rryq8_7M1\u002DEGJxO3K\u002DG\u0022\u003EColab notebook\u003C/a\u003E\u003C/li\u003E\u000D\u000A\u003C/ul\u003E';
-                                document.write(DOMPurify.sanitize(
-                                    content,
-                                    { FORBID_TAGS: ['style'] }
-                                ));
-                            }
-                        </script>
-                        <p>We invite you to participate in the 
-Dialogue 2021 competition on Russian News Clustering and Headline 
-Generation. The task consists of three tracks: clustering, headline 
-selection, and headline generation. This competition aims to collect and
- compare different approaches to text clustering and headline selection.</p>
-<p>We took news documents from the <a href="https://contest.com/docs/data_clustering2">Telegram Data Clustering Contest</a> and collected annotations via Yandex.Toloka crowdsourcing platform.</p>
-<p>The competition consists of three stages:</p>
-<ul>
-<li>Clustering (this page)</li>
-<li>Choosing the best headline (https://competitions.codalab.org/competitions/29479)</li>
-<li>Generating cluster headline (https://competitions.codalab.org/competitions/29905)</li>
-</ul>
-<p>Discussion group in Telegram: <a href="https://t.me/dialogue_clustering">https://t.me/dialogue_clustering</a></p>
-<h4>Important dates</h4>
-<ul>
-<li>Release of the Clustering data: February 8, 2021</li>
-<li>Release of the side-by-side titles comparison data: February 26, 2021</li>
-<li>Deadline for all submissions: March 21, 2021</li>
-</ul>
-<h4>Organizers</h4>
-<ul>
-<li>Ilya Gusev, Moscow Institute of Physics and Technologyю E-mail: ilya.gusev@phystech.edu. Telegram: <a href="https://competitions.codalab.org/competitions/t.me/YallenGusev">@YallenGusev</a>.</li>
-<li>Ivan Smurov, Moscow Institute of Physics and Technology, ABBYY. E-mail: ivan.smurov@abbyy.com.</li>
-</ul>
-<h4>Baselines</h4>
-<ul>
-<li>All baselines: <a href="https://colab.research.google.com/drive/1bam5oFul9Gzj9rryq8_7M1-EGJxO3K-G">Colab notebook</a></li>
-</ul>
+                        
+                        
+                        {{competition.description|safe}}
                         
                     
                 </div>
@@ -125,25 +91,8 @@ selection, and headline generation. This competition aims to collect and
                 <div class="tab-pane" id="learn_the_details-terms_and_conditions">
                     
                         
-                        <script>
-                            {
-                                const content = '\u003Ch3\u003ETerms and Conditions\u003C/h3\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003EWe do not own any of the news documents, all of them were collected and published by Telegram.\u003C/li\u003E\u000D\u000A\u003Cli\u003EAll markups were collected via Yandex.Toloka, and licensed under \u003Ca href\u003D\u0022https://creativecommons.org/licenses/by/4.0\u0022\u003ECC BY 4.0\u003C/a\u003E\u003C/li\u003E\u000D\u000A\u003Cli\u003EThere are no money prizes in this competition, it is purely educational and scientific.\u003C/li\u003E\u000D\u000A\u003Cli\u003EThe Clustering task can be solved both as a clustering or classification task.\u003C/li\u003E\u000D\u000A\u003Cli\u003EIt is forbidden to use any news documents from the test set during training or pre\u002Dtraining. It includes pre\u002Dtraining word vectors on these documents.\u003C/li\u003E\u000D\u000A\u003C/ul\u003E';
-                                document.write(DOMPurify.sanitize(
-                                    content,
-                                    { FORBID_TAGS: ['style'] }
-                                ));
-                            }
-                        </script><h3>Terms and Conditions</h3>
-<ul>
-<li>We do not own any of the news documents, all of them were collected and published by Telegram.</li>
-<li>All markups were collected via Yandex.Toloka, and licensed under <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
-<li>There are no money prizes in this competition, it is purely educational and scientific.</li>
-<li>The Clustering task can be solved both as a clustering or classification task.</li>
-<li>It is forbidden to use any news documents from the test set during 
-training or pre-training. It includes pre-training word vectors on these
- documents.</li>
-</ul>
                         
+                        {{competition.conditional|safe}}
                     
                 </div>
             
@@ -207,37 +156,22 @@ training or pre-training. It includes pre-training word vectors on these
         <div class="tab-content sidenav">
             
                 <div class="tab-pane" id="participate-get_data">
+                    {%with competition.datasets.all|first as dataset%}
                     
                         
 
                         
                         <script>
                             {
-                                const content = '\u003Ch4\u003EDescription\u003C/h4\u003E\u000D\u000A\u003Cp\u003EIn the Clustering stage, you have given a collection of news documents from the \u003Ca href\u003D\u0022https://contest.com/docs/data_clustering2\u0022\u003ETelegram Data Clustering Contest\u003C/a\u003E and a set of pairs from these documents. Your task is, for each given pair, to predict whether two documents describe the same event. We provide the labeled training dataset and the unlabeled test dataset.\u003C/p\u003E\u000D\u000A\u003Ch4\u003EEvaluation Criteria\u003C/h4\u003E\u000D\u000A\u003Cp\u003EThe main metric F\u002Dscore for positive examples.\u003C/p\u003E\u000D\u000A\u003Ch4\u003EData\u003C/h4\u003E\u000D\u000A\u003Cp\u003ETraining set: \u003Ca title\u003D\u0022ru_clustering_0525_urls.tsv\u0022 href\u003D\u0022https://www.dropbox.com/s/8lu6dw8zcrn840j/ru_clustering_0525_urls.tsv\u0022\u003Ehttps://www.dropbox.com/s/8lu6dw8zcrn840j/ru_clustering_0525_urls.tsv\u003C/a\u003E\u003C/p\u003E\u000D\u000A\u003Cp\u003ETest set: \u003Ca title\u003D\u0022ru_clustering_test_fixed.tsv\u0022 href\u003D\u0022https://www.dropbox.com/s/v2lbfft6pgzoeq3/ru_clustering_test_fixed.tsv\u0022\u003Ehttps://www.dropbox.com/s/v2lbfft6pgzoeq3/ru_clustering_test_fixed.tsv\u003C/a\u003E\u003C/p\u003E\u000D\u000A\u003Ch4\u003EColumns\u003C/h4\u003E\u000D\u000A\u003Cul\u003E\u000D\u000A\u003Cli\u003E\u003Cstrong\u003Efirst_url\u003C/strong\u003E \u002D URL of the first document\u003C/li\u003E\u000D\u000A\u003Cli\u003E\u003Cstrong\u003Esecond_url\u003C/strong\u003E \u002D URL of the second document\u003C/li\u003E\u000D\u000A\u003Cli\u003E\u003Cstrong\u003Equality\u003C/strong\u003E \u002D \u0022OK\u0022 if two documents describe the same event, \u0022BAD\u0022 otherwise\u003C/li\u003E\u000D\u000A\u003Cli\u003E\u003Cstrong\u003Edataset\u0026nbsp\u003B\u003C/strong\u003E\u002D exists only in test dataset to distinguish different dates\u003C/li\u003E\u000D\u000A\u003C/ul\u003E';
+                                const content = '{{dataset.description|safe}}';
                                 document.write(DOMPurify.sanitize(
                                     content,
                                     { FORBID_TAGS: ['style'] }
                                 ));
                             }
-                        </script><h4>Description</h4>
-<p>In the Clustering stage, you have given a collection of news documents from the <a href="https://contest.com/docs/data_clustering2">Telegram Data Clustering Contest</a>
- and a set of pairs from these documents. Your task is, for each given 
-pair, to predict whether two documents describe the same event. We 
-provide the labeled training dataset and the unlabeled test dataset.</p>
-<h4>Evaluation Criteria</h4>
-<p>The main metric F-score for positive examples.</p>
-<h4>Data</h4>
-<p>Training set: <a href="https://www.dropbox.com/s/8lu6dw8zcrn840j/ru_clustering_0525_urls.tsv" title="ru_clustering_0525_urls.tsv">https://www.dropbox.com/s/8lu6dw8zcrn840j/ru_clustering_0525_urls.tsv</a></p>
-<p>Test set: <a href="https://www.dropbox.com/s/v2lbfft6pgzoeq3/ru_clustering_test_fixed.tsv" title="ru_clustering_test_fixed.tsv">https://www.dropbox.com/s/v2lbfft6pgzoeq3/ru_clustering_test_fixed.tsv</a></p>
-<h4>Columns</h4>
-<ul>
-<li><strong>first_url</strong> - URL of the first document</li>
-<li><strong>second_url</strong> - URL of the second document</li>
-<li><strong>quality</strong> - "OK" if two documents describe the same event, "BAD" otherwise</li>
-<li><strong>dataset&nbsp;</strong>- exists only in test dataset to distinguish different dates</li>
-</ul>
-                        
-                    
+                        </script>
+                        {{dataset.description|safe}}
+                    {%endwith%}
                 </div>
             
                 <div class="tab-pane active" id="participate-submit_results">
@@ -269,39 +203,85 @@ provide the labeled training dataset and the unlabeled test dataset.</p>
         <p><b>Max submissions per day: </b> 999</p>
         <p><b>Max submissions total: </b> 1000</p>
     </div>
-
-    
-
-    
-        <div class="form-group">
-            <label class="control-label">Click the Submit button to upload a new submission.</label>
-
-
-
-
-
-
-
-            
-                <br><b>*Team name (20 characters max): </b><input id="submission_team_name" type="text" maxlength="20" class="form-control" placeholder="Team name" value="landges21">
-                <br><b>*Method name (20 characters max): </b><input id="submission_method_name" type="text" maxlength="20" class="form-control" placeholder="Method name" value="tt +sbert">
-                <br><b>*Method description: </b><textarea id="submission_method_description" class="form-control" placeholder="Method description">tt +sbert</textarea>
-                <br><b>Project URL: </b><input id="submission_project_url" class="form-control" placeholder="Project URL" value="https://colab.research.google.com/drive/1VmNzklCiQRlx2C4zwAJA7FG3XW7vTTaP?usp=sharing">
-                <br><b>Publication URL: </b><input id="submission_publication_url" class="form-control" placeholder="Publication URL">
-                <br><b>Bibtex: </b><textarea id="submission_bibtex" class="form-control" placeholder="Bibtex"></textarea>
-                <br><b>Organization/affiliation: </b><input id="submission_organization_or_affiliation" class="form-control" placeholder="Organization or Affiliation" value="MSU">
-            
-        </div>
+        
 
         
-            <form id="s3_upload_form" action="" method="post">
+            <form id="s3_upload_form" action="{%url 'ajax_upload'%}" method="post" enctype="multipart/form-data">
                 {%csrf_token%}
-                <div class="s3direct form-active" data-policy-url="/s3direct/get_upload_params/">  <a class="file-link" target="_blank" href=""></a>  <a class="file-remove" href="#remove">Remove</a>  <input class="file-url" type="hidden" value="" id="id_s3_file" name="s3_file">  <input class="file-dest" type="hidden" value="submissions">  <input class="file-input" type="file">  <div class="progress progress-striped active">    <div class="bar"></div>  </div></div>
+                <div class="form-group">
+                <label class="control-label">Click the Submit button to upload a new submission.
+                </label>
+
+            
+                    <br><b>*Team name (20 characters max): </b>
+                    <input id="submission_team_name" type="text" maxlength="20" class="form-control" placeholder="Team name" value="landges21">
+                    <br><b>*Method name (20 characters max): </b>
+                    <input id="submission_method_name" type="text" maxlength="20" class="form-control" placeholder="Method name" value="tt +sbert">
+                    <br><b>*Method description: </b>
+                    <textarea id="submission_method_description" class="form-control" placeholder="Method description">tt +sbert</textarea>            
+                    </div>
+                <div class="s3direct form-active" >  
+                    <a class="file-link" target="_blank" href=""></a>  
+                    <a class="file-remove" href="#remove">Remove</a>  
+                    <input class="file-url" type="hidden" value="" id="id_s3_file" name="s3_file"><input class="file-dest" type="hidden" value="submissions">  
+                    <input class="file-input" type="file" name="inputfile">  
+                    <div class="progress progress-striped active">    
+                        <div class="bar"></div>  
+                    </div>
+                </div>
+                <!-- <input class="file-input" type="file" name="inputfile">  -->
                 <div id="s3-file-upload" class="button btn btn-primary ">
                     Submit
                 </div>
             </form>
-        
+            <!-- <script 
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#s3-file-upload").click(function(e) {
+                    // reset form
+                    console.log('first');
+                    // $(".s3direct .file-input").val('')
+                    // $('.s3direct a.file-link').attr('href', '')
+
+                    $(".s3direct .file-input").click()
+                })
+                $("#s3-file-upload").click(function(event){
+                    event.preventDefault();
+                    var form = $('#s3_upload_form')[0];
+                    var formData = new FormData(form);
+                    console.log(formData);
+
+                    var competitionId = $("#competitionId").val();
+                    formData.append("competition",competitionId);
+                    $('#details').html('Creating new submission...');
+                    // var docker_image = $('#submission_docker_image').val() || '';
+                    var description = $('#submission_description_textarea').val() || '';
+                    formData.append("description",description);
+                    var method_name = $('#submission_method_name').val() || '';
+                    formData.append("method_name",method_name);
+                    var method_description = $('#submission_method_description').val() || '';
+                    formData.append("method_description",method_description);
+                    var team_name = $('#submission_team_name').val() || '';
+                    formData.append("team_name",team_name);
+                    // $('#submission_description_textarea').val('');
+                    $.ajax({
+                        url: '/uploadsubm/',
+                        type: 'post',
+                        cache: false,
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function(responce){
+                            var table = $(".appendrow")
+                            table.append(responce);
+                            console.log(responce);
+                        }
+                        })
+
+                })
+            })
+        </script>
 
 
         
@@ -330,7 +310,7 @@ provide the labeled training dataset and the unlabeled test dataset.</p>
                     <th class="text-center"><span class="glyphicon glyphicon-ok"></span></th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="appendrow">
                     {%for result in user_board%}
                         {%include 'contest/includes/result_user_card.html'%}
                     {%endfor%}
@@ -434,33 +414,27 @@ provide the labeled training dataset and the unlabeled test dataset.</p>
     //**************************************************************//
     //**                 S3 Filestorage functions                 **//
     //**************************************************************//
-    $("#s3-file-upload").click(function(e) {
-        // reset form
-        $(".s3direct .file-input").val('')
-        $('.s3direct a.file-link').attr('href', '')
 
-        $(".s3direct .file-input").click()
-    })
 
-    $(".s3direct .file-input").change(function(){
-        $("#s3-file-upload").addClass('disabled')
-        if($(".s3direct .file-input").val() == '') {
-            $("#s3-file-upload").removeClass('disabled')
-            return
-        }
+    // $(".s3direct .file-input").change(function(){
+    //     $("#s3-file-upload").addClass('disabled')
+    //     if($(".s3direct .file-input").val() == '') {
+    //         $("#s3-file-upload").removeClass('disabled')
+    //         return
+    //     }
 
-        var test_if_done = function () {
-            var uploaded_url = $('.s3direct a.file-link').attr('href')
+        // var test_if_done = function () {
+        //     var uploaded_url = $('.s3direct a.file-link').attr('href')
 
-            if (uploaded_url && uploaded_url != '' && uploaded_url.length > 0) {
-                $("#s3-file-upload").removeClass('disabled')
-                Competition.submitUploadedSubmissionDetails(undefined, uploaded_url)
-            } else {
-                setTimeout(test_if_done, 100)
-            }
-        }
-        test_if_done()
-    })
+        //     if (uploaded_url && uploaded_url != '' && uploaded_url.length > 0) {
+        //         $("#s3-file-upload").removeClass('disabled')
+        //         Competition.submitUploadedSubmissionDetails(undefined, uploaded_url)
+        //     } else {
+        //         setTimeout(test_if_done, 100)
+        //     }
+        // }
+        // test_if_done()
+    // })
 </script>
 </div>
 
@@ -554,25 +528,13 @@ provide the labeled training dataset and the unlabeled test dataset.</p>
                     </tr>
                     </thead>
                     <tbody>
-                    
+                        {%for row in competition.get_top3%}
                         <tr>
-                            <td>1</td>
-                            <td>maelstorm</td>
-                            <td>0.969</td>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{row.participant.username}}</td>
+                            <td>{{row.score}}</td>
                         </tr>
-                    
-                        <tr>
-                            <td>2</td>
-                            <td>naergvae</td>
-                            <td>0.967</td>
-                        </tr>
-                    
-                        <tr>
-                            <td>3</td>
-                            <td>g2tmn</td>
-                            <td>0.965</td>
-                        </tr>
-                    
+                        {%endfor%}
                     </tbody>
                 </table>
             
@@ -589,13 +551,13 @@ provide the labeled training dataset and the unlabeled test dataset.</p>
     var chart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["08 February 2021","10 February 2021","15 February 2021","18 February 2021","19 February 2021","20 February 2021","21 February 2021","24 February 2021","26 February 2021","27 February 2021","28 February 2021","01 March 2021","02 March 2021","03 March 2021","04 March 2021","05 March 2021","06 March 2021","07 March 2021","08 March 2021","09 March 2021","10 March 2021","11 March 2021","12 March 2021","13 March 2021","14 March 2021","15 March 2021","16 March 2021","17 March 2021","18 March 2021","19 March 2021","20 March 2021","21 March 2021","22 March 2021","23 March 2021","24 March 2021","04 May 2021","02 June 2021","15 June 2021",],
+            labels: {{competition.get_submission_date|safe}},
             datasets: [
                 {
                     type: 'line',
                     label: 'High Score',
                     yAxisID: 'score',
-                    data: [0.8, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 1.0, 1.0, 1.0, 1.0, 1.0, 0.9, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.9, 0.9, 0.9, ],
+                    data: {{competition.get_best_scores}},
                     borderColor: 'rgba(255, 99, 132, 1)',
                     backgroundColor: 'rgba(255, 255, 255, 0.0)'
                 },
@@ -603,7 +565,7 @@ provide the labeled training dataset and the unlabeled test dataset.</p>
                     type: 'bar',
                     label: 'Total Daily Submissions',
                     yAxisID: 'count',
-                    data: [2, 1, 2, 8, 1, 5, 3, 1, 1, 6, 2, 1, 3, 2, 5, 12, 9, 12, 9, 33, 1, 5, 13, 8, 3, 17, 11, 7, 42, 16, 25, 82, 3, 7, 23, 1, 1, 1, ]
+                    data: {{competition.get_total_submissiom}}
                 }
             ]
         },
