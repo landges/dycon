@@ -304,7 +304,7 @@ var Competition;
         }).done(function(response) {
             $('#details').html('');
             $('#user_results tr.noData').remove();
-            $('#user_results').append(Competition.displayNewSubmission(response, description, method_name, method_description, project_url, publication_url, bibtex, team_name, organization_or_affiliation));
+            $('#user_results').append(Competition.displayNewSubmission(response, description, method_name, method_description, team_name));
             $('#user_results #' + response.id + ' .glyphicon-plus').on('click', function() { Competition.showOrHideSubmissionDetails(this) });
             $('#fileUploadButton').removeClass('disabled');
             //$('#fileUploadButton').text("Submit Results...");
@@ -321,7 +321,7 @@ var Competition;
         });
     }
 
-    Competition.displayNewSubmission = function(response, description, method_name, method_description, project_url, publication_url, bibtex, team_name, organization_or_affiliation) {
+    Competition.displayNewSubmission = function(response, description, method_name, method_description, project_url, publication_url, bibtex, team_name) {
         var elemTr = $('#submission_details_template #submission_row_template tr').clone();
         $(elemTr).attr('id', response.id.toString());
         $(elemTr).addClass(Competition.oddOrEven(response.submission_number));
@@ -335,20 +335,8 @@ var Competition;
         if (method_description !== undefined && method_description !== '') {
             $(elemTr).attr('data-method-description', method_description);
         }
-        if (project_url !== undefined && project_url !== '') {
-            $(elemTr).attr('data-project-url', project_url);
-        }
-        if (publication_url !== undefined && publication_url !== '') {
-            $(elemTr).attr('data-publication-url', publication_url);
-        }
-        if (bibtex !== undefined && bibtex !== '') {
-            $(elemTr).attr('data-bibtex', bibtex);
-        }
         if (team_name !== undefined && team_name !== '') {
             $(elemTr).attr('data-team-name', team_name);
-        }
-        if (organization_or_affiliation !== undefined && organization_or_affiliation !== '') {
-            $(elemTr).attr('data-organization-or-affiliation', organization_or_affiliation);
         }
 
         $(elemTr).children().each(function(index) {
