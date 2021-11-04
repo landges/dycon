@@ -2,16 +2,20 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.views.generic.base import View
 from django.contrib.auth.models import User
-from .tasks import submission
+from .tasks import *
 from .models import *
 from .forms import SignUpForm, CompetitionSubmissionForm
+from django.http import JsonResponse
+import zipfile
+import os
+import subprocess
 from django.http import JsonResponse
 
 # Create your views here.
 class SubmitContest(View):
 	def get(self, request, pk):
 		comp = Competition.objects.get(id=pk)
-		submission.delay(2,2)
+		# submission.delay(2,2)
 		user = User.objects.get(username=request.user)
 		leader_board = CompetitionSubmission.objects.filter(competition=comp,is_public=True).order_by('score')		
 		for result in leader_board:
@@ -34,6 +38,21 @@ class CompetionList(View):
 	def post(self, request):
 		pass
 
+def change_leaderboard(request):
+	data=request.POST
+	subm = CompetitionSubmission.objects.get(id=data.get('id'))
+	user = User.objects.get(username=request.user)
+	publ_subm = CompetitionSubmission.objects.filter(competition=subm.competition, participant=user,is_public=True).first()
+	if publ_subm is not None:
+		publ_subm.is_public = False
+		publ_subm.save()
+	subm.is_public= not subm.is_public
+	subm.save()
+	publ_subm = CompetitionSubmission.objects.filter(competition=subm.competition, participant=user,is_public=True).first()
+	if publ_subm is None:
+		return JsonResponse({"status":"NO"})
+	else:
+		return JsonResponse({"status":"OK"})
 
 class UploadSubmission(View):
 	def post(self,request):
@@ -43,7 +62,9 @@ class UploadSubmission(View):
 		participant = User.objects.get(username=request.user)
 		form.instance.participant = participant
 		if form.is_valid():
-			form.save()
+			subm = form.save()
+			# submission(subm.id)
+			submission_new.delay(subm.id)
 			return JsonResponse({"save":"OK"})
 		else:
 			return JsonResponse({"save":"Error"})

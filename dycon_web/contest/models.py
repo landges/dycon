@@ -36,6 +36,7 @@ class Competition(models.Model):
     datasets = models.ManyToManyField(Dataset, blank=True, related_name='phase')
     scoring_program = models.FileField(upload_to='scoring_program_file',null=True,blank=True, verbose_name="Scoring Program")
     conditional = models.TextField(null=True,blank=True)
+    golden_file = models.FileField(upload_to='scoring_program_file',null=True,blank=True, verbose_name="golden")
     # scoring_program_docker_image = models.CharField(max_length=128, default='', blank=True)
     # default_docker_image = models.CharField(max_length=128, default='', blank=True)
     # disable_custom_docker_image = models.BooleanField(default=True)
@@ -51,7 +52,7 @@ class Competition(models.Model):
         return participants
 
     def get_top3(self):
-        leader_board = CompetitionSubmission.objects.filter(competition=self,is_public=True).order_by('score')[:3]
+        leader_board = CompetitionSubmission.objects.filter(competition=self,is_public=True).order_by('-score')[:3]
         return leader_board
 
     def get_submission_date(self):
