@@ -19,7 +19,7 @@
             <h2>{{competition.title}}</h2>
             
             <div class="organizer">
-                Organized by {{competition.creator.username}} - Current server time: {%now 'P'%}<br>
+                Organized by {{competition.creator.username}} - Current server time: {%now "d.m.Y H:m:s"%}<br>
             </div>
             <input type="hidden" id="competitionId" value="{{competition.id}}">
             <input type="hidden" id="cstoken" value="IO1WrXSJJip6xCC9pgXUgR0HIKqc2V65">
@@ -29,7 +29,7 @@
                             <div class="phase current">
                                 <h4><span class="glyphicon glyphicon-play"></span> Current</h4>
                                 <span class="phase-label label phase-label-purple">Clustering</span>
-                                <div class="date">{{competition.start_date}}</div>
+                                <div class="date">{{competition.start_date|date:"d.m.Y H:m:s"}}</div>
                             </div>
                         </div>
 
@@ -37,7 +37,7 @@
                             <div class="phase">
                                 <h4>End</h4>
                                 <span class="phase-label label competition-end">Competition Ends</span>
-                                <div class="date">{{competition.end_date}}</div>
+                                <div class="date">{{competition.end_date|date:"d.m.Y H:m:s"}}</div>
                             </div>
                         </div>
                     
@@ -116,7 +116,8 @@
                                             <h3 class="panel-title">Clustering</h3>
                                         </div>
                                         <div class="panel-body">
-                                            <p><strong>Start:</strong> {{competition.start_date}}</p>
+                                            <p><strong>Start:</strong> 
+                                            {{competition.start_date|date:"d.m.Y H:m:s"}}</p>
                                             
                                         </div>
                                     </div>
@@ -126,7 +127,7 @@
                                     <h3 class="panel-title"><strong>Competition Ends</strong></h3>
                                 </div>
                                 <div class="panel-body">
-                                    <p>  <strong>{{competition.end_date}}</strong>
+                                    <p>  <strong>{{competition.end_date|date:"d.m.Y H:m:s"}}</strong>
                                     
                                     </p>
                                 </div>
@@ -535,7 +536,7 @@
     </div>
 
     
-        <a class="icon-excel btn btn-default" href="https://competitions.codalab.org/competitions/28830/results/47491/data">Download CSV</a>
+        <a class="icon-excel btn btn-default" href="{%url 'get_result' pk=competition.id%}">Download CSV</a>
     
     
 

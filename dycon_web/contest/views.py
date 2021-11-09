@@ -6,10 +6,9 @@ from .tasks import *
 from .models import *
 from .forms import SignUpForm, CompetitionSubmissionForm
 from django.http import JsonResponse
-import zipfile
-import os
-import subprocess
-from django.http import JsonResponse
+from io import StringIO
+from django.http import JsonResponse, HttpResponse
+import csv
 
 # Create your views here.
 class SubmitContest(View):
@@ -53,6 +52,23 @@ def change_leaderboard(request):
 		return JsonResponse({"status":"NO"})
 	else:
 		return JsonResponse({"status":"OK"})
+
+def get_result_csv(request,pk):
+	comp=Competition.objects.get(id=pk)
+	leader_board = CompetitionSubmission.objects.filter(competition=comp,is_public=True).order_by('score')		
+	for result in leader_board:
+		entries = CompetitionSubmission.objects.filter(competition=comp, participant=result.participant).count()
+		result.entries = entries
+	# leader_board.values('id','participant','score')
+	csvfile = StringIO()
+	csvwriter = csv.writer(csvfile)
+	for result in leader_board:
+		csvwriter.writerow((result.id,result.participant,result.score))
+	response = HttpResponse(csvfile.getvalue(),status=200, content_type="css/text")
+	response["Content-Disposition"] = "attachment;filename=result.csv"
+	return response
+
+
 
 class UploadSubmission(View):
 	def post(self,request):
