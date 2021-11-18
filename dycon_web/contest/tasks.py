@@ -32,6 +32,7 @@ def submission_new(id):
 	except:
 		score = 0.0
 	subm.score=score
+	subm.status = "finished"
 	subm.save()
 	return score
 

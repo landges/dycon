@@ -126,39 +126,18 @@ class Competition(models.Model):
         pass
 
 
-# Competition Submission Status
-class CompetitionSubmissionStatus(models.Model):
-    """
-    Base model to keep track of Submissions status
-    .. note::
-        Valid status are:
-            - Submitting.
-            - Submitted.
-            - Running.
-            - Failed.
-            - Cancelled.
-            - Finished.
-    """
-    SUBMITTING = "submitting"
-    SUBMITTED = "submitted"
-    RUNNING = "running"
-    FAILED = "failed"
-    CANCELLED = "cancelled"
-    FINISHED = "finished"
-
-    name = models.CharField(max_length=20)
-    codename = models.SlugField(max_length=20,unique=True)
-
-    def __unicode__(self):
-        return self.name
-
-    def __str__(self):
-        return self.name
-
-
 
 class CompetitionSubmission(models.Model):
     """Represents a submission from a competition participant."""
+    TYPES = (
+        ("submitting", "submitting"),
+        ("submitted", "submitted"),
+        ("running", "running"),
+        ("failed", "failed"),
+        ("cancelled", "cancelled"),
+        ("finished", "finished"),
+        ("None", "None")
+    )
     participant = models.ForeignKey(User, related_name='submissions',on_delete=models.CASCADE)
     competition = models.ForeignKey(Competition, related_name='submissions',on_delete=models.CASCADE)
     secret = models.CharField(max_length=128, default='', blank=True)
@@ -170,25 +149,10 @@ class CompetitionSubmission(models.Model):
     submitted_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)
     completed_at = models.DateTimeField(null=True, blank=True)
-    status = models.ForeignKey(CompetitionSubmissionStatus,on_delete=models.CASCADE,default=None)
-    status_details = models.CharField(max_length=100, null=True, blank=True)
     submission_number = models.PositiveIntegerField(default=0)
     output_file = models.FileField(upload_to='submission_output',  null=True, blank=True)
-    private_output_file = models.FileField(upload_to='submission_private_output',  null=True, blank=True)
-    stdout_file = models.FileField(upload_to='submission_stdout',  null=True, blank=True)
-    stderr_file = models.FileField(upload_to='submission_stderr',  null=True, blank=True)
-    history_file = models.FileField(upload_to='submission_history',  null=True, blank=True)
-    scores_file = models.FileField(upload_to='submission_scores',  null=True, blank=True)
-    coopetition_file = models.FileField(upload_to='submission_coopetition',  null=True, blank=True)
-    detailed_results_file = models.FileField(upload_to='submission_detailed_results',  null=True, blank=True)
-    prediction_runfile = models.FileField(upload_to='submission_prediction_runfile',
-                                           null=True, blank=True)
-    prediction_output_file = models.FileField(upload_to='submission_prediction_output',
-                                               null=True, blank=True)
     exception_details = models.TextField(blank=True, null=True)
-    prediction_stdout_file = models.FileField(upload_to='predict_submission_stdout',  null=True, blank=True)
-    prediction_stderr_file = models.FileField(upload_to='predict_submission_stderr',  null=True, blank=True)
-
+    status = models.CharField(max_length=64, choices=TYPES, default="None")
     method_name = models.CharField(max_length=20, null=True, blank=True)
     method_description = models.TextField(null=True, blank=True)
     project_url = models.URLField(null=True, blank=True)

@@ -17,3 +17,4 @@ class DatasetAdmin(admin.ModelAdmin):
 @admin.register(OrganizerDataSet)
 class OrganizerDataSetAdmin(admin.ModelAdmin):
 	list_display=['id','name','type']
+

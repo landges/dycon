@@ -12,7 +12,7 @@
     {%endif%}
     </td>
     <td>{{result.submitted_at|date:"d.m.Y H:m:s"}}</td>
-    <td class="statusName">Finished</td>
+    <td class="statusName">{{result.status}}</td>
     
     <td class="status submitted text-center">
         {%if result.is_public%}

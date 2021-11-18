@@ -116,6 +116,8 @@ class UploadSubmission(View):
 		form.instance.participant = participant
 		if form.is_valid():
 			subm = form.save()
+			subm.status = "running"
+			subm.save()
 			# submission(subm.id)
 			submission_new.delay(subm.id)
 			return render(request,'contest/includes/result_user_card.html',context={"result":subm})
