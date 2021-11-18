@@ -4,12 +4,16 @@ from .models import *
 
 @admin.register(Competition)
 class CompetitionAdmin(admin.ModelAdmin):
-	list_display=['id','title']
+	list_display=['id','title','published']
 
 @admin.register(CompetitionSubmission)
-class CompetitionAdmin(admin.ModelAdmin):
+class CompetitionSubmissionAdmin(admin.ModelAdmin):
 	list_display=['id','participant']
 
 @admin.register(Dataset)
 class DatasetAdmin(admin.ModelAdmin):
 	list_display = ['id','creator','name']
+
+@admin.register(OrganizerDataSet)
+class OrganizerDataSetAdmin(admin.ModelAdmin):
+	list_display=['id','name','type']

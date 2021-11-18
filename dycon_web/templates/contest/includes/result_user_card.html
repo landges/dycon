@@ -6,7 +6,11 @@
     
         <td>{{result.score}}</td>
     
-    <td>{{result.inputfile.name}}</td>
+    <td>
+    {%if result.inputfile%}
+    {{result.inputfile.name}}
+    {%endif%}
+    </td>
     <td>{{result.submitted_at|date:"d.m.Y H:m:s"}}</td>
     <td class="statusName">Finished</td>
     
@@ -36,7 +40,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <ul class="list-unstyled">
-                        <li><a href="{{result.inputfile.url}}">Download your submission</a></li>
+                        <li><a href="{%if result.inputfile%}{{result.inputfile.url}}{%endif%}">Download your submission</a></li>
                         
                         
                             <li><a href="/my/competition/submission/840998/stdout.txt" target="_blank">View scoring output log</a></li>

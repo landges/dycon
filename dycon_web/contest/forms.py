@@ -10,6 +10,11 @@ class CompetitionSubmissionForm(forms.ModelForm):
 		fields = ('competition','team_name','method_name','method_description','inputfile')
 
 
+class CompetitionForm(forms.ModelForm):
+	class Meta:
+		model = Competition
+		fields = "__all__"
+
 class SignUpForm(UserCreationForm):
 	class Meta:
 		model = User

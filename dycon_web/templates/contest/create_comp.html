@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block title%}
+Create Competition
+{%endblock%}
+{%block content%}
+<div class="page-header">
+    <div class="container">
+        <h1>Create Competition</h1>
+    </div>
+</div>
+<div class="container" style="padding-bottom: 40px;"> 
+	<div class="tab-content">
+        <div id="competitions" class="tab-pane active">
+            <div class="tab-inner">
+                <div class="row">
+                    <div class="col-sm-12 kill-newlines"> 
+                    	<form method="post" action="{%url 'createcomp'%}" enctype="multipart/form-data" style="display:grid;">
+                    		{%csrf_token%}
+                    		{{form}}
+                    		<input type="submit" name="" style="margin-top:20px;">
+                    	</form>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{%endblock%}

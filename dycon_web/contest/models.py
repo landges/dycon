@@ -15,7 +15,32 @@ class Dataset(models.Model):
     class Meta:
         ordering = ["number"]
 
-        
+
+
+class OrganizerDataSet(models.Model):
+    TYPES = (
+        ("Reference Data", "Reference Data"),
+        ("Scoring Program", "Scoring Program"),
+        ("Input Data", "Input Data"),
+        ("Ingestion Program", "Ingestion Program"),
+        ("Starting Kit", "Starting Kit"),
+        ("Public Data", "Public Data"),
+        ("None", "None")
+    )
+    name = models.CharField(max_length=255)
+    full_name = models.TextField(default="")
+    type = models.CharField(max_length=64, choices=TYPES, default="None")
+    description = models.TextField(null=True, blank=True)
+    data_file = models.FileField(
+        upload_to='dataset_data_file',
+        verbose_name="Data file",
+        blank=True,
+        null=True,
+    )
+    sub_data_files = models.ManyToManyField('OrganizerDataSet', null=True, blank=True, verbose_name="Bundle of data files")
+    uploaded_by = models.ForeignKey(User,on_delete=models.DO_NOTHING)
+ 
+
 # Create your models here.
 class Competition(models.Model):
     title = models.CharField(max_length=100)
@@ -37,9 +62,23 @@ class Competition(models.Model):
     scoring_program = models.FileField(upload_to='scoring_program_file',null=True,blank=True, verbose_name="Scoring Program")
     conditional = models.TextField(null=True,blank=True)
     golden_file = models.FileField(upload_to='scoring_program_file',null=True,blank=True, verbose_name="golden")
-    # scoring_program_docker_image = models.CharField(max_length=128, default='', blank=True)
+    docker_config = models.FileField(upload_to='dockerfiles', default=None, blank=True)
     # default_docker_image = models.CharField(max_length=128, default='', blank=True)
     # disable_custom_docker_image = models.BooleanField(default=True)
+    requirements = models.FileField(upload_to='requirement/%Y/%m/%d/',default=None,blank=True,null=True)
+    ingestion_program = models.FileField(
+        upload_to='ingestion_program',
+        blank=True,
+        null=True,
+    )
+    ingestion_program_docker_image = models.CharField(max_length=128, default='', blank=True)
+    ingestion_program_organizer_dataset = models.ForeignKey(
+        OrganizerDataSet,
+        null=True,
+        blank=True,
+        related_name="ingestion_program_organizer_dataset",
+        on_delete=models.SET_NULL
+    )
 
     def __str__(self):
         return self.title
@@ -87,6 +126,37 @@ class Competition(models.Model):
         pass
 
 
+# Competition Submission Status
+class CompetitionSubmissionStatus(models.Model):
+    """
+    Base model to keep track of Submissions status
+    .. note::
+        Valid status are:
+            - Submitting.
+            - Submitted.
+            - Running.
+            - Failed.
+            - Cancelled.
+            - Finished.
+    """
+    SUBMITTING = "submitting"
+    SUBMITTED = "submitted"
+    RUNNING = "running"
+    FAILED = "failed"
+    CANCELLED = "cancelled"
+    FINISHED = "finished"
+
+    name = models.CharField(max_length=20)
+    codename = models.SlugField(max_length=20,unique=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return self.name
+
+
+
 class CompetitionSubmission(models.Model):
     """Represents a submission from a competition participant."""
     participant = models.ForeignKey(User, related_name='submissions',on_delete=models.CASCADE)
@@ -100,7 +170,7 @@ class CompetitionSubmission(models.Model):
     submitted_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)
     completed_at = models.DateTimeField(null=True, blank=True)
-    # status = models.ForeignKey(CompetitionSubmissionStatus)
+    status = models.ForeignKey(CompetitionSubmissionStatus,on_delete=models.CASCADE,default=None)
     status_details = models.CharField(max_length=100, null=True, blank=True)
     submission_number = models.PositiveIntegerField(default=0)
     output_file = models.FileField(upload_to='submission_output',  null=True, blank=True)
