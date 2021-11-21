@@ -21,10 +21,14 @@ class SubmitContest(View):
 			entries = CompetitionSubmission.objects.filter(competition=comp, participant=result.participant).count()
 			result.entries = entries
 		user_board = CompetitionSubmission.objects.filter(competition=comp, participant=user).order_by('submitted_at')
+		details = comp.pages.filter(type="detail")
+		participate= comp.pages.filter(type="participate")
 		return render(request,'contest/competition_detail.html',context={
 			"competition":comp, 
 			"leader_board":leader_board,
-			"user_board":user_board})
+			"user_board":user_board,
+			"details_pages":details,
+			"participate_pages":participate})
 
 	def post(self, request):
 		pass

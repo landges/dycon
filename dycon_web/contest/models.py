@@ -166,3 +166,17 @@ class CompetitionSubmission(models.Model):
     like_count = models.IntegerField(default=0)
     dislike_count = models.IntegerField(default=0)
     score = models.FloatField(default=0.0)
+
+
+class PageCompetition(models.Model):
+    TYPES = (
+        ("detail", "detail"),
+        ("participate", "participate"),
+        ("None", "None")
+    )
+    title = models.CharField(max_length=20,null=True,blank=True,default=None)
+    slug = models.SlugField(max_length=20,null=True,blank=True,default=None)
+    content = models.TextField()
+    type = models.CharField(max_length=64, choices=TYPES, default="None")
+    competition = models.ForeignKey(Competition, related_name='pages',on_delete=models.CASCADE)
+    order = models.IntegerField(null=True,blank=True,default=None)
