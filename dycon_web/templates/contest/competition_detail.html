@@ -67,34 +67,25 @@
                         <div class="row">
                              <div class="col-sm-3">
                                 <ul class="nav nav-sidenav innertabs">
-                                    <li class="active">
-                                        <a href="#learn_the_details-overview" data-toggle="tab">Overview</a>
+                                    {%for page in details_pages%}
+                                    <li class="{%if forloop.counter == 1%}active{%endif%}">
+                                        
+                                        <a href="#learn_the_details-{{page.slug}}" data-toggle="tab">{{page.title}}</a>
+                                        
                                     </li>
-                                    <li class="">
-                                        <a href="#learn_the_details-terms_and_conditions" data-toggle="tab">Terms and Conditions</a>
-                                    </li>
+                                    {%endfor%}
                                 </ul>
                             </div>
                             <div class="col-sm-9">
                                 <div class="tab-content sidenav">
-            
-                                    <div class="tab-pane active" id="learn_the_details-overview">
-                    
-                        
-                        
-                        
-                        {{competition.description|safe}}
+                {%for page in details_pages%}
+                <div class="tab-pane {%if forloop.counter == 1%}active{%endif%}" id="learn_the_details-{{page.slug}}">
+
+                    {{page.content|safe}}
                         
                     
                 </div>
-            
-                <div class="tab-pane" id="learn_the_details-terms_and_conditions">
-                    
-                        
-                        
-                        {{competition.conditional|safe}}
-                    
-                </div>
+                {%endfor%}
             
         </div>
     </div>
@@ -147,7 +138,13 @@
     <div class="col-sm-3">
         <ul class="nav nav-sidenav innertabs">
             
-                <li class=""><a href="#participate-get_data" data-toggle="tab">Get Data</a></li>
+                {%for page in participate_pages%}
+                <li class="">
+                    
+                    <a href="#learn_the_details-{{page.slug}}" data-toggle="tab">{{page.title}}</a>
+                    
+                </li>
+                {%endfor%}
             
                 <li class="active"><a href="#participate-submit_results" data-toggle="tab">Submit / View Results</a></li>
             
@@ -156,24 +153,14 @@
     <div class="col-sm-9">
         <div class="tab-content sidenav">
             
-                <div class="tab-pane" id="participate-get_data">
-                    {%with competition.datasets.all|first as dataset%}
-                    
-                        
+                {%for page in participate_pages%}
+                <div class="tab-pane" id="learn_the_details-{{page.slug}}">
 
+                    {{page.content|safe}}
                         
-                        <script>
-                            {
-                                const content = '{{dataset.description|safe}}';
-                                document.write(DOMPurify.sanitize(
-                                    content,
-                                    { FORBID_TAGS: ['style'] }
-                                ));
-                            }
-                        </script>
-                        {{dataset.description|safe}}
-                    {%endwith%}
+                    
                 </div>
+                {%endfor%}
             
                 <div class="tab-pane active" id="participate-submit_results">
                     
@@ -214,12 +201,12 @@
                 </label>
 
             
-                    <br><b>*Team name (20 characters max): </b>
-                    <input id="submission_team_name" type="text" maxlength="20" class="form-control" placeholder="Team name" value="landges21">
+                    <br><b>*Team name (20 characters max):</b>
+                    <input id="submission_team_name" type="text" maxlength="20" class="form-control" placeholder="Team name" value="{{last_subm.team_name}}">
                     <br><b>*Method name (20 characters max): </b>
-                    <input id="submission_method_name" type="text" maxlength="20" class="form-control" placeholder="Method name" value="tt +sbert">
+                    <input id="submission_method_name" type="text" maxlength="20" class="form-control" placeholder="Method name" value="{{last_subm.method_name}}">
                     <br><b>*Method description: </b>
-                    <textarea id="submission_method_description" class="form-control" placeholder="Method description">tt +sbert</textarea>            
+                    <textarea id="submission_method_description" class="form-control" placeholder="Method description">{{last_subm.method_description}}</textarea>            
                     </div>
                 <div class="s3direct form-active" >  
                     <a class="file-link" target="_blank" href=""></a>  
