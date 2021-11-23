@@ -116,7 +116,6 @@ class CreateCompetition(View):
 class UploadSubmission(View):
 	def post(self,request):
 		data=request.POST
-		print(data)
 		form = CompetitionSubmissionForm(request.POST,request.FILES)
 		participant = User.objects.get(username=request.user)
 		form.instance.participant = participant

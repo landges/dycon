@@ -29,10 +29,11 @@ def submission_new(id):
 	score = 0.0
 	try:
 		score = float(output.decode("utf-8"))
+		subm.status = "finished"
 	except:
 		score = 0.0
+		subm.status = "failed"
 	subm.score=score
-	subm.status = "finished"
 	subm.save()
 	return score
 

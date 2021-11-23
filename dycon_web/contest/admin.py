@@ -25,7 +25,7 @@ class CompetitionAdmin(admin.ModelAdmin):
 
 @admin.register(CompetitionSubmission)
 class CompetitionSubmissionAdmin(admin.ModelAdmin):
-	list_display=['id','participant']
+	list_display=['id','participant','score']
 
 @admin.register(Dataset)
 class DatasetAdmin(admin.ModelAdmin):
@@ -39,4 +39,4 @@ class OrganizerDataSetAdmin(admin.ModelAdmin):
 class PageCompetitionAdmin(admin.ModelAdmin):
 	list_display = ['id','title','competition']
 	form= PageCompetitionAdminForm
-
+	prepopulated_fields = {'slug': ('title',)}
