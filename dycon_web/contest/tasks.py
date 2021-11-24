@@ -12,6 +12,8 @@ import shutil
 @app.task
 def submission_new(id):
 	subm=CompetitionSubmission.objects.get(id=id)
+	subm.status = "running"
+	subm.save()
 	docker_name=subm.competition.ingestion_program_docker_image
 	path_to_subm = subm.inputfile.path
 	path_to_valid = subm.competition.ingestion_program.path

@@ -48,7 +48,6 @@ class Competition(models.Model):
     label = models.CharField(max_length=300,null=True, blank=True)
     url_redirect = models.URLField(null=True, blank=True, verbose_name="URL Redirect", help_text="(NOTE: You should not have Registration Required above checked if using URL redirection, because upon redirect participants will not be approved and unable to participate.)")
     image = models.FileField(upload_to='logos', null=True, blank=True, verbose_name="Logo")
-    image_url_base = models.CharField(max_length=255)
     has_registration = models.BooleanField(default=False, verbose_name="Registration Required")
     start_date = models.DateTimeField(null=True, blank=True, verbose_name="Start Date (UTC)")
     end_date = models.DateTimeField(null=True, blank=True, verbose_name="End Date (UTC)")
@@ -62,10 +61,10 @@ class Competition(models.Model):
     scoring_program = models.FileField(upload_to='scoring_program_file',null=True,blank=True, verbose_name="Scoring Program")
     conditional = models.TextField(null=True,blank=True)
     golden_file = models.FileField(upload_to='scoring_program_file',null=True,blank=True, verbose_name="golden")
-    docker_config = models.FileField(upload_to='dockerfiles', default=None, blank=True)
+    docker_config = models.FileField(upload_to='dockerfiles/%Y%m%d/%h%m%s/', default=None, blank=True)
     # default_docker_image = models.CharField(max_length=128, default='', blank=True)
     # disable_custom_docker_image = models.BooleanField(default=True)
-    requirements = models.FileField(upload_to='requirement/%Y/%m/%d/',default=None,blank=True,null=True)
+    requirements = models.FileField(upload_to='requirement/%Y%m%d/%h%m%s/',default=None,blank=True,null=True)
     ingestion_program = models.FileField(
         upload_to='ingestion_program',
         blank=True,
@@ -114,7 +113,7 @@ class Competition(models.Model):
         comp=self
         dates = CompetitionSubmission.objects.filter(competition=self).distinct('submitted_at__date')
         for date in dates:
-            subm = CompetitionSubmission.objects.filter(competition=self, submitted_at__date=date.submitted_at).order_by('score').first()
+            subm = CompetitionSubmission.objects.filter(competition=self, submitted_at__date=date.submitted_at).order_by('-score').first()
             scores.append(subm.score)
         return scores
 
@@ -144,7 +143,7 @@ class CompetitionSubmission(models.Model):
     docker_image = models.CharField(max_length=128, default='', blank=True)
     file = models.FileField(upload_to='submission_file_name',  null=True, blank=True)
     description = models.CharField(max_length=256, blank=True)
-    inputfile = models.FileField(upload_to='submission_inputfile',  null=True, blank=True)
+    inputfile = models.FileField(upload_to='submission_inputfile/%Y%m%d/%h%m%s/',  null=True, blank=True)
     runfile = models.FileField(upload_to='submission_runfile',  null=True, blank=True)
     submitted_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)
@@ -167,6 +166,9 @@ class CompetitionSubmission(models.Model):
     dislike_count = models.IntegerField(default=0)
     score = models.FloatField(default=0.0)
 
+    def get_filename(self):
+        filename = self.inputfile.path.split('/')[-1]
+        return filename
 
 class PageCompetition(models.Model):
     TYPES = (

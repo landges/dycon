@@ -25,7 +25,7 @@ class CompetitionAdmin(admin.ModelAdmin):
 
 @admin.register(CompetitionSubmission)
 class CompetitionSubmissionAdmin(admin.ModelAdmin):
-	list_display=['id','participant','score']
+	list_display=['id','participant','score','is_public']
 
 @admin.register(Dataset)
 class DatasetAdmin(admin.ModelAdmin):

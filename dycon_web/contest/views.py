@@ -9,14 +9,17 @@ from django.http import JsonResponse
 from io import StringIO
 from django.http import JsonResponse, HttpResponse
 import csv
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-class SubmitContest(View):
+class SubmitContest(LoginRequiredMixin,View):
+	login_url = '/accounts/login/'
+
 	def get(self, request, pk):
 		comp = Competition.objects.get(id=pk)
 		# submission.delay(2,2)
 		user = User.objects.get(username=request.user)
-		leader_board = CompetitionSubmission.objects.filter(competition=comp,is_public=True).order_by('score')		
+		leader_board = CompetitionSubmission.objects.filter(competition=comp,is_public=True).order_by('-score')		
 		for result in leader_board:
 			entries = CompetitionSubmission.objects.filter(competition=comp, participant=result.participant).count()
 			result.entries = entries
@@ -117,11 +120,12 @@ class UploadSubmission(View):
 	def post(self,request):
 		data=request.POST
 		form = CompetitionSubmissionForm(request.POST,request.FILES)
+		print(request.FILES)
 		participant = User.objects.get(username=request.user)
 		form.instance.participant = participant
 		if form.is_valid():
 			subm = form.save()
-			subm.status = "running"
+			subm.status = "submitting"
 			subm.save()
 			# submission(subm.id)
 			submission_new.delay(subm.id)

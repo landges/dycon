@@ -4,11 +4,11 @@
     
     <td>{{forloop.counter}}</td>
     
-        <td>{{result.score}}</td>
+        <td>{{result.score|floatformat:4}}</td>
     
     <td>
     {%if result.inputfile%}
-    {{result.inputfile.name}}
+    {{result.get_filename}}
     {%endif%}
     </td>
     <td>{{result.submitted_at|date:"d.m.Y H:m:s"}}</td>

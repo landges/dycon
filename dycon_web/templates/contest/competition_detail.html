@@ -22,7 +22,6 @@
                 Organized by {{competition.creator.username}} - Current server time: {%now "d.m.Y H:m:s"%}<br>
             </div>
             <input type="hidden" id="competitionId" value="{{competition.id}}">
-            <input type="hidden" id="cstoken" value="IO1WrXSJJip6xCC9pgXUgR0HIKqc2V65">
             <div class="phase-container">
                 <div class="row">
                         <div class="col-sm-4">
@@ -211,7 +210,7 @@
                 <div class="s3direct form-active" >  
                     <a class="file-link" target="_blank" href=""></a>  
                     <a class="file-remove" href="#remove">Remove</a>  
-                    <input class="file-url" type="hidden" value="" id="id_s3_file" name="s3_file"><input class="file-dest" type="hidden" value="submissions">  
+
                     <input class="file-input" type="file" name="inputfile">  
                     <div class="progress progress-striped active">    
                         <div class="bar"></div>  
@@ -234,12 +233,17 @@
 
                     $(".s3direct .file-input").click()
                 })
-                $("#s3-file-upload").click(function(event){
-                    event.preventDefault();
+                $(".s3direct .file-input").on('change',function(event){
+                    // event.preventDefault();
                     var form = $('#s3_upload_form')[0];
                     var formData = new FormData(form);
-                    console.log(formData);
-
+                    console.log(form);
+                    // var file = $('input[type=file]').files;
+                    // if( typeof files == 'undefined' ) return;
+                    // $.each( file, function( key, value ){
+                    //     formData.append( "inputfile", value );
+                    // });
+                    // formData.append("inputfile",file);
                     var competitionId = $("#competitionId").val();
                     formData.append("competition",competitionId);
                     $('#details').html('Creating new submission...');
@@ -263,7 +267,6 @@
                         success: function(responce){
                             var table = $(".appendrow")
                             table.append(responce);
-                            console.log(responce);
                         }
                         })
 
@@ -576,7 +579,7 @@
                         <tr>
                             <td>{{forloop.counter}}</td>
                             <td>{{row.participant.username}}</td>
-                            <td>{{row.score}}</td>
+                            <td>{{row.score|floatformat:4}}</td>
                         </tr>
                         {%endfor%}
                     </tbody>

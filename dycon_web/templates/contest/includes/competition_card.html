@@ -10,10 +10,10 @@
             <div class="col-sm-6 col-md-6">
                 <h3>{{comp.title}}</h3>
                 <p class="organizer">Organized by {{comp.creator}}</p>
-                <p>{{comp.label}}</p>
+                <p>{{comp.description}}</p>
             </div>
             <div class="col-sm-4 col-md-4 right-panel">
-                {{comp.start_date}}-{{comp.end_date}}<br>
+                {{comp.start_date|date:"d.m.Y"}}-{{comp.end_date|date:"d.m.Y"}}<br>
 				<b>{{comp.get_count_participants}}</b> participants<br>
             </div>
             <br><br>

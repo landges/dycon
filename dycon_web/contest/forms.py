@@ -13,7 +13,7 @@ class CompetitionSubmissionForm(forms.ModelForm):
 class CompetitionForm(forms.ModelForm):
 	class Meta:
 		model = Competition
-		fields = "__all__"
+		fields = ("title","description","image","start_date","end_date","creator","docker_config","requirements","ingestion_program","ingestion_program_docker_image")
 
 class SignUpForm(UserCreationForm):
 	class Meta:
