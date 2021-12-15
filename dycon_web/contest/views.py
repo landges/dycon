@@ -19,6 +19,7 @@ class SubmitContest(LoginRequiredMixin,View):
 		comp = Competition.objects.get(id=pk)
 		# submission.delay(2,2)
 		user = User.objects.get(username=request.user)
+		
 		leader_board = CompetitionSubmission.objects.filter(competition=comp,is_public=True).order_by('-score')		
 		for result in leader_board:
 			entries = CompetitionSubmission.objects.filter(competition=comp, participant=result.participant).count()

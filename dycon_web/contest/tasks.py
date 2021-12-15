@@ -4,6 +4,7 @@ import os
 import subprocess
 from .models import *
 import shutil
+from django.core.files.base import ContentFile, File
 
 # @app.task
 # def submission(x,y):
@@ -35,6 +36,7 @@ def submission_new(id):
 	except:
 		score = 0.0
 		subm.status = "failed"
+	subm.output_file.save('errors_output.txt',ContentFile(output.decode("utf-8")))
 	subm.score=score
 	subm.save()
 	return score
@@ -44,6 +46,20 @@ def submission_new(id):
 # copy_and_run = docker run --rm -v /tmp/src:/code --name val44 val ./ans2
 #subprocess.run('docker run --rm -v /tmp/src:/code --name val44 val ./ans2'.split(' '))
 # subprocess.check_output('docker run --rm -v /tmp/src:/code --name val46 val ./ans2'.split(' '))
+
+# @app.task
+# def load_contest(id):
+# 	comp = Competition.objects.get(id=id)
+# 	path_dockerfile = comp.docker_config.path
+# 	path_dockerfile_folder = path_dockerfile[:-4]+'/'
+# 	zfile = zipfile.ZipFile(path_dockerfile, 'r')
+# 	zfile.extractall(path_dockerfile_folder)
+# 	zfile.close()
+# 	os.chdir(path_dockerfile_folder)
+# 	subprocess.run(["docker","build",f"--file={name_config}","-t",comp.ingestion_program_docker_image, "."])
+# 	comp.published=True
+# 	comp.save()
+
 
 @app.task
 def load_contest(id):
@@ -60,37 +76,8 @@ def load_contest(id):
 	comp.published=True
 	comp.save()
 
+
+
 @app.task
-def submission_load(request):
-	data=request.POST
-	print(data)
-	form = CompetitionSubmissionForm(request.POST,request.FILES)
-	participant = User.objects.get(username=request.user)
-	form.instance.participant = participant
-	if form.is_valid():
-		subm = form.save()
-		# submission(subm.id)
-		
-		subm=CompetitionSubmission.objects.get(id=id)
-		docker_name=subm.competition.ingestion_program_docker_image
-		path_to_subm = subm.inputfile.path
-		path_to_valid = subm.competition.ingestion_program.path
-		
-
-		folder = path_to_subm[:-4]+'/'
-
-		zfile = zipfile.ZipFile(path_to_subm, 'r')
-		zfile.extractall(folder)
-		zfile.close()
-		zfile = zipfile.ZipFile(path_to_valid, 'r')
-		zfile.extractall(folder)
-		zfile.close()
-		output = subprocess.check_output(f'docker run --rm -v {folder}:/code {docker_name}'.split(' '))
-		score = 0.0
-		try:
-			score = float(output.decode("utf-8"))
-		except:
-			score = 0.0
-		subm.score=score
-		subm.save()
-		return subm
+def update_docker_image(name):
+	subprocess.run(["docker","build","-t",name, "."])

@@ -41,14 +41,8 @@
                 <div class="col-sm-6">
                     <ul class="list-unstyled">
                         <li><a href="{%if result.inputfile%}{{result.inputfile.url}}{%endif%}">Download your submission</a></li>
-                        
-                        
-                            <li><a href="/my/competition/submission/840998/stdout.txt" target="_blank">View scoring output log</a></li>
-                            <li><a href="/my/competition/submission/840998/stderr.txt" target="_blank">View scoring error log</a></li>
-                            
-                            
-                                <li><a href="/my/competition/submission/840998/output.zip">Download output from scoring step</a></li>
-                            
+
+                        <li><a href="{%if result.output_file%}{{result.output_file.url}}{%endif%}" target="_blank">View log</a></li>
                         
                     </ul>
                 </div>

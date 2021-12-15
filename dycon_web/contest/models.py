@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from datetime import datetime
+from tasks import update_docker_image
 
 # Dataset model
 class Dataset(models.Model):
@@ -53,7 +54,7 @@ class Competition(models.Model):
     end_date = models.DateTimeField(null=True, blank=True, verbose_name="End Date (UTC)")
     creator = models.ForeignKey(User, related_name='competitioninfo_creator',on_delete=models.CASCADE)
     admins = models.ManyToManyField(User, related_name='competition_admins', blank=True, null=True)
-    modified_by = models.ForeignKey(User, related_name='competitioninfo_modified_by',on_delete=models.CASCADE)
+    modified_by = models.ForeignKey(User, null=True, blank=True,related_name='competitioninfo_modified_by',on_delete=models.CASCADE)
     last_modified = models.DateTimeField(auto_now_add=True)
     # pagecontainers = generic.GenericRelation(PageContainer)
     published = models.BooleanField(default=False, verbose_name="Publicly Available")
@@ -78,6 +79,13 @@ class Competition(models.Model):
         related_name="ingestion_program_organizer_dataset",
         on_delete=models.SET_NULL
     )
+
+    # def update(self, *args, **kwargs):
+    #     if self.docker_config != self.__original_docker_config:
+    #         comp.published=False
+    #         delay.update_docker_image(self.ingestion_program_docker_image)
+    #         comp.published=True
+    #     super(ProductInBasket, self).update(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -114,7 +122,8 @@ class Competition(models.Model):
         dates = CompetitionSubmission.objects.filter(competition=self).distinct('submitted_at__date')
         for date in dates:
             subm = CompetitionSubmission.objects.filter(competition=self, submitted_at__date=date.submitted_at).order_by('-score').first()
-            scores.append(subm.score)
+            if subm is not None:
+                scores.append(subm.score)
         return scores
 
 
