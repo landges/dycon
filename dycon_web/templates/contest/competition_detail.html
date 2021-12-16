@@ -166,31 +166,17 @@
                         
 
 
-
+<!-- 
 <div id="submissions_phase_buttons">
   
     
-      <!-- active, dont change bg color -->
+      
         <button class="btn active phase-btn-purple btn-sm selected" id="submissions_phase_47491">Clustering</button>
     
-  
-</div>
+ 
+</div>  -->
 
 <div class="competition_submissions">
-
-    
-
-    
-    <div class="phase-description">
-        <h4>Phase description</h4>
-        
-            <p>None</p>
-        
-
-        <p><b>Max submissions per day: </b> 999</p>
-        <p><b>Max submissions total: </b> 1000</p>
-    </div>
-        
 
         
             <form id="s3_upload_form" action="{%url 'ajax_upload'%}" method="post" enctype="multipart/form-data">
@@ -507,7 +493,7 @@
                             <div id="results_phase_buttons">
   
     
-      <button class="btn active phase-btn-purple selected" id="results_phase_47491">Clustering</button>
+      
     
   
 </div>
@@ -515,15 +501,6 @@
 <div class="competition_results">
 
 
-    
-    <div class="phase-description">
-        <h4>Phase description</h4>
-        
-            <p>{{competition.dsc}}</p>
-        
-        <p><b>Max submissions per day: </b> 999</p>
-        <p><b>Max submissions total: </b> 1000</p>
-    </div>
 
     
         <a class="icon-excel btn btn-default" href="{%url 'get_result' pk=competition.id%}">Download CSV</a>

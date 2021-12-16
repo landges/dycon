@@ -7,11 +7,11 @@
 
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="image/x-icon" rel="shortcut icon" href="https://competitions.codalab.org/static/img/favicon.ico">
+    <link type="image/x-icon" rel="shortcut icon" href="{%static 'img/favicon.ico'%}">
     
     
 
-    <title>CodaLab - Competition</title>
+    <title>MadLab - Competition</title>
 
     
         <!-- Included CSS Files (Compressed) -->
@@ -83,6 +83,7 @@
                 <div class="collapse navbar-collapse" id="navbar_collapse">
                     
                     <ul class="nav navbar-nav navbar-right">
+                        {%if user.is_superuser%}
                           <li class="">                                 
                             <a href="https://competitions.codalab.org/my">My Competitions</a>  
                           </li>
@@ -92,6 +93,7 @@
                         <li>
                             <a href="https://github.com/codalab/codalab-competitions/wiki" target="_blank">Help</a>
                         </li>
+                        {%endif%}
                         {%if user.is_authenticated%}
                             <li class="dropdown ">
                                 <a href="https://competitions.codalab.org/my/settings/">
@@ -99,9 +101,9 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     
-                                    <li><a href="https://competitions.codalab.org/my/settings/">Settings</a></li>
+                                  <!--   <li><a href="https://competitions.codalab.org/my/settings/">Settings</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="https://competitions.codalab.org/accounts/password/reset/" target="_self">Change Password</a></li>
+                                    <li><a href="https://competitions.codalab.org/accounts/password/reset/" target="_self">Change Password</a></li> -->
                                     <li class="divider"></li>
                                     <li><a href="{%url 'signout'%}" target="_self">Sign Out</a></li>
                                 </ul>
@@ -127,10 +129,10 @@
     <footer class="navbar-fixed-bottom">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://github.com/codalab/codalab/issues" target="_blank">Join us on Github for contact &amp; bug reports</a></li>
+                <li><a href="https://github.com/landges/dycon" target="_blank">Join us on Github for contact &amp; bug reports</a></li>
                 
-                    <li><a href="https://github.com/codalab/codalab/wiki/Project_About_CodaLab" target="_blank">About</a></li>
-                    <li><a href="https://github.com/codalab/codalab/wiki/Privacy" target="_blank">Privacy and Terms</a></li>
+                    <!-- <li><a href="https://github.com/codalab/codalab/wiki/Project_About_CodaLab" target="_blank">About</a></li>
+                    <li><a href="https://github.com/codalab/codalab/wiki/Privacy" target="_blank">Privacy and Terms</a></li> -->
                 
 
                 <li><a>v1.5</a></li>

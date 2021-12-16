@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from datetime import datetime
-from tasks import update_docker_image
+from .tasks import update_docker_image
 
 # Dataset model
 class Dataset(models.Model):
