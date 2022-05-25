@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'contest',
+    'api',
 ]
 
 MIDDLEWARE = [
