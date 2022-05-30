@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('djadmin/', admin.site.urls),
     path('',include('contest.urls')),
+    path('api-auth/',include('rest_framework.urls')),
     path('api/v1/', include('api.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
