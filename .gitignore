@@ -34,6 +34,9 @@ MANIFEST
 *.manifest
 *.spec
 
+prod_settings.py
+loc_settings.py
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt

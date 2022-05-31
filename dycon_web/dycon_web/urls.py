@@ -23,6 +23,8 @@ urlpatterns = [
     path('',include('contest.urls')),
     path('api-auth/',include('rest_framework.urls')),
     path('api/v1/', include('api.urls')),
+    path('auth/',include('djoser.urls')),
+    path('auth/',include('djoser.urls.authtoken')),
     path('accounts/',include('django.contrib.auth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
