@@ -10,4 +10,5 @@ urlpatterns = [
     path('uploadsubm/',UploadSubmission.as_view(),name='ajax_upload'),
     path('accounts/signup/',SignUp.as_view(),name='signup'),
     path('accounts/signout/',SignOut.as_view(),name='signout'),
+    path('my/settings/',AccountView.as_view(),name='account'),
 ]

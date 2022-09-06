@@ -7,7 +7,7 @@ try:
     from .loc_settings import *
 except ImportError:
     from .prod_settings import *
-
+# from .loc_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -119,14 +119,25 @@ LOGIN_REDIRECT_URL='/competitions/'
 ACCOUNT_ACTIVATION_DAYS = 365
 
 # redis related settings
-REDIS_HOST = '0.0.0.0'
 REDIS_PORT = '6379'
-CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+REDIS_SERVICE_HOST = os.environ.get("REDIS_SERVICE_HOST", "127.0.0.1")
+BROKER_PORT = 1
+RESULTS_PORT = 2
+
+CELERY_BROKER_URL = f"redis://{REDIS_SERVICE_HOST}:{REDIS_PORT}/{BROKER_PORT}"
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout':3600}
-CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+CELERY_RESULT_BACKEND = (
+    f"redis://{REDIS_SERVICE_HOST}:{REDIS_PORT}/{RESULTS_PORT}"
+)
 CELERY_ACCEPT_CONTENT = ['application/json']
+
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_TASK_DEFAULT_QUEUE = "default"
+
+
+
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {

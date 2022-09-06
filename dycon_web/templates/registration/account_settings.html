@@ -1,0 +1,112 @@
+{%extends 'base.html'%}
+{%block content%}
+
+            <div class="page-header">
+                <div class="container">
+                    <h1>User Settings</h1>
+                </div>
+            </div>
+        
+    
+
+    
+    
+
+    
+        <div class="container" style="padding-bottom: 40px;">
+            
+<form method="POST" action=".">
+	{%csrf_token%}
+    <h2>{{user.username}}</h2>
+    
+
+    
+
+    
+
+    <h3><b>Basic settings </b></h3>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped account">
+                <tbody>
+                    <tr>
+                        <th>First name</th>
+                        <td><input id="id_first_name" maxlength="30" name="first_name" type="text" value="{{user.first_name}}"></td>
+                    </tr>
+                    <tr>
+                        <th>Last name</th>
+                        <td><input id="id_last_name" maxlength="30" name="last_name" type="text" value="{{user.last_name}}"></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><input id="id_email" maxlength="75" name="email" type="email" value="{{user.email}}"></td>
+                    </tr>
+                    <tr>
+                        <th>Date joined</th>
+                        <td>{{user.date_joined}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h3><b>Competition settings</b></h3>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped affiliation">
+                <tbody>
+                    <tr>
+                        <th>Team name</th>
+                        <td><input id="id_team_name" maxlength="64" name="team_name" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>Team members<br><i style="font-weight: normal;">(each member on a new line)</i></th>
+                        <td><textarea class="form-control" cols="40" id="id_team_members" name="team_members" rows="10"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <table class="table table-striped subscriptions">
+                <tbody>
+                    <tr>
+                        <th>Participation status updates</th>
+                        <td><input checked="checked" id="id_participation_status_updates" name="participation_status_updates" type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <th>Organizer status updates</th>
+                        <td><input checked="checked" id="id_organizer_status_updates" name="organizer_status_updates" type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <th>Organizer direct message updates</th>
+                        <td><input checked="checked" id="id_organizer_direct_message_updates" name="organizer_direct_message_updates" type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <th>Email on submission finished successfully</th>
+                        <td><input id="id_email_on_submission_finished_successfully" name="email_on_submission_finished_successfully" type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <th>Allow forum notifications</th>
+                        <td><input checked="checked" id="id_allow_forum_notifications" name="allow_forum_notifications" type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <th>Allow admin status updates</th>
+                        <td><input checked="checked" id="id_allow_admin_status_updates" name="allow_admin_status_updates" type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-primary margin-top" value="Save Changes">
+</form>
+
+        </div>
+{%endblock%}

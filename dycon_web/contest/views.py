@@ -154,3 +154,14 @@ class SignOut(View):
 	def get(self,request):
 		logout(request)
 		return redirect("competitions")
+
+
+
+class AccountView(View):
+	def get(self, request):
+		user = User.objects.get(username=request.user)
+		return render(request,'registration/account_settings.html',context={"user":user})
+
+
+	def post(self,request):
+		pass

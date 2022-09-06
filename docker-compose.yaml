@@ -1,5 +1,36 @@
 version: "3"
 services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    networks:
+      - main
+    ports:
+      - 5434:5432
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin:/root/.pgadmin
+    ports:
+      - 5050:80
+    depends_on:
+      - "postgres"
+    networks:
+      - main
+    restart: unless-stopped
+
+
   flower:  
     image: mher/flower
     environment:
@@ -7,8 +38,73 @@ services:
      - FLOWER_PORT=8888
     ports:  
       - 8888:8888
+    networks:
+      - main
 
   redis:
     image: redis
+    volumes:
+      - redis-data:/data
     ports:
       - 6379:6379
+    networks:
+      - main
+
+  backend: &backend
+    container_name: my-backend
+    build:
+      context: .
+      dockerfile: dycon_web/Dockerfile
+    command:
+      - "python3"
+      - "manage.py"
+      - "runserver"
+      - "0.0.0.0:8000"
+    volumes:
+      - ./dycon_web:/code
+    ports:
+      - "8000:8000"
+    networks:
+      - main
+    environment:
+      - CELERY_TASK_ALWAYS_EAGER=$CELERY_TASK_ALWAYS_EAGER
+      - DJANGO_EMAIL_HOST=mailhog
+      - POSTGRES_SERVICE_HOST=postgres
+      - REDIS_SERVICE_HOST=redis
+      - DJANGO_SETTINGS_MODULE=dycon_web.settings
+    depends_on:
+      - postgres
+      - redis
+
+  celery_worker:
+    <<: *backend
+    container_name: celery_default
+    command: celery -A dycon_web worker --loglevel=info
+    ports: []
+    depends_on:
+      - backend
+      - redis
+    networks:
+      - main
+
+  celery_beat:
+    <<: *backend
+    container_name: beat
+    command: celery -A dycon_web worker --loglevel=info
+    ports: []
+    depends_on:
+      - backend
+      - redis
+    networks:
+      - main
+
+
+volumes:
+  pg-data:
+  redis-data:
+  pgadmin:
+
+
+networks:
+  main:
+    driver: bridge
