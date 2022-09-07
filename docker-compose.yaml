@@ -64,6 +64,8 @@ services:
       - ./dycon_web:/code
     ports:
       - "8000:8000"
+    env_file:
+      - ./dycon_web/dycon_web/.prod.env
     networks:
       - main
     environment:
