@@ -55,6 +55,7 @@ services:
     build:
       context: .
       dockerfile: dycon_web/Dockerfile
+      network: host
     command:
       - "python3"
       - "manage.py"
@@ -73,7 +74,7 @@ services:
       - DJANGO_EMAIL_HOST=mailhog
       - POSTGRES_SERVICE_HOST=postgres
       - REDIS_SERVICE_HOST=redis
-      - DJANGO_SETTINGS_MODULE=dycon_web.settings
+      - DJANGO_SETTINGS_MODULE=dycon_web.settings.development
     depends_on:
       - postgres
       - redis
